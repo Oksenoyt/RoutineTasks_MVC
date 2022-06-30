@@ -20,14 +20,16 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.94117647058823528" green="0.91764705882352937" blue="0.94117647058823528" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Привычки" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QVN-4Y-Guf">
-                                <rect key="frame" x="160" y="63" width="94" height="21.5"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Привычки" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QVN-4Y-Guf">
+                                <rect key="frame" x="131.5" y="57" width="151" height="36.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="QVN-4Y-Guf" secondAttribute="height" multiplier="112:27" id="hbw-aL-g1c"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="KohinoorBangla-Semibold" family="Kohinoor Bangla" pointSize="26"/>
                                 <color key="textColor" red="0.94117647059999998" green="0.91764705879999997" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="zzz-iT-88s">
+                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="zzz-iT-88s">
                                 <rect key="frame" x="204" y="117" width="179.5" height="20.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="27" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4DU-Ps-0Bg">
@@ -62,20 +64,42 @@
                                     </label>
                                 </subviews>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nLH-xa-r16">
-                                <rect key="frame" x="350" y="59" width="33" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <buttonConfiguration key="configuration" style="plain" title="+"/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FhV-Ca-okT">
-                                <rect key="frame" x="20" y="59" width="67" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FhV-Ca-okT">
+                                <rect key="frame" x="18" y="49" width="61" height="52"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="61" id="S99-Sa-Nn7" userLabel="width = 60"/>
+                                    <constraint firstAttribute="height" constant="52" id="hCA-bS-j3P" userLabel="height = 60"/>
+                                </constraints>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="imgSettings" title=""/>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.34999999999999998" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="pic" translatesAutoresizingMaskIntoConstraints="NO" id="6EI-TN-G8a">
+                                <rect key="frame" x="-86" y="0.0" width="362" height="193"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nLH-xa-r16">
+                                <rect key="frame" x="339.5" y="52" width="45.5" height="46"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="46" id="Li0-B9-bsR"/>
+                                    <constraint firstAttribute="width" constant="45.5" id="dDg-2Y-N2L" userLabel="width = 46"/>
+                                </constraints>
+                                <color key="tintColor" red="0.94117647058823528" green="0.91764705882352937" blue="0.94117647058823528" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <buttonConfiguration key="configuration" style="plain" title="+">
+                                    <fontDescription key="titleFontDescription" name="KohinoorBangla-Semibold" family="Kohinoor Bangla" pointSize="42"/>
+                                </buttonConfiguration>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="FhV-Ca-okT" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="18" id="Kui-Si-Sv2"/>
+                            <constraint firstItem="nLH-xa-r16" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="8" id="Ndg-jz-Egj"/>
+                            <constraint firstItem="FhV-Ca-okT" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="5" id="dVO-cp-b51"/>
+                            <constraint firstItem="QVN-4Y-Guf" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="kQd-vW-jY7"/>
+                            <constraint firstItem="QVN-4Y-Guf" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="13" id="ns1-Ps-kLh"/>
+                            <constraint firstItem="zzz-iT-88s" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="73" id="ojc-Ki-bKA"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="nLH-xa-r16" secondAttribute="trailing" constant="29" id="vrD-wl-g1i"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="addNewItemButton" destination="nLH-xa-r16" id="WtG-fu-jKH"/>
@@ -87,4 +111,8 @@
             <point key="canvasLocation" x="18.840579710144929" y="83.705357142857139"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="imgSettings" width="54" height="57"/>
+        <image name="pic" width="512" height="512"/>
+    </resources>
 </document>
