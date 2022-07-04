@@ -11,11 +11,11 @@ class MainViewController: UIViewController {
 
     @IBOutlet weak var settingsButton: UIBarButtonItem!
     @IBOutlet weak var addNewItemButton: UIBarButtonItem!
-    @IBOutlet weak var backgroudView: UIView!
+    @IBOutlet weak var backgroundView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        backgroudView.layer.cornerRadius = 30
+        backgroundView.layer.cornerRadius = 30
         
     }
 
