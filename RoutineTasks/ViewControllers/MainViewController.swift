@@ -17,6 +17,7 @@ class MainViewController: UIViewController {
         super.viewDidLoad()
         backgroundView.layer.cornerRadius = 30
         
+        
     }
 
 
