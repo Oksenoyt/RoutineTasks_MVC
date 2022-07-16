@@ -269,9 +269,12 @@
                     <connections>
                         <outlet property="addNewItemButton" destination="n4s-hB-xbd" id="bot-xa-hp8"/>
                         <outlet property="backgroundView" destination="XO6-1o-hAc" id="D3g-f3-htu"/>
-                        <outlet property="calendarLabel" destination="rzq-2X-1Dp" id="VTd-kC-YsV"/>
-                        <outlet property="datesStackView" destination="x4h-jn-6M6" id="6bC-4m-XUw"/>
                         <outlet property="settingsButton" destination="AcD-Xv-Xw5" id="9WC-Jk-pQR"/>
+                        <outletCollection property="dayLabels" destination="8Yb-VK-syc" collectionClass="NSMutableArray" id="ng8-Kr-0bX"/>
+                        <outletCollection property="dayLabels" destination="rOK-mm-yGg" collectionClass="NSMutableArray" id="lfS-Fg-aon"/>
+                        <outletCollection property="dayLabels" destination="pV2-nl-LK2" collectionClass="NSMutableArray" id="HtZ-k7-3N8"/>
+                        <outletCollection property="dayLabels" destination="SuE-uz-4fZ" collectionClass="NSMutableArray" id="fhH-CQ-m8q"/>
+                        <outletCollection property="dayLabels" destination="rzq-2X-1Dp" collectionClass="NSMutableArray" id="KM8-rq-KDI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
