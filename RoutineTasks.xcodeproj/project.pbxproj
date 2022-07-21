@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		422672F02872DC4A00511C2E /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 422672EF2872DC4A00511C2E /* SettingsViewController.swift */; };
 		422672F42872E6FD00511C2E /* AutorizationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 422672F32872E6FD00511C2E /* AutorizationViewController.swift */; };
+		422A551C28899D5300AA22F0 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 422A551B28899D5300AA22F0 /* Task.swift */; };
 		4231D6B52869A33D000419BA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4231D6B42869A33D000419BA /* AppDelegate.swift */; };
 		4231D6B72869A33D000419BA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4231D6B62869A33D000419BA /* SceneDelegate.swift */; };
 		4231D6B92869A33D000419BA /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4231D6B82869A33D000419BA /* MainViewController.swift */; };
@@ -23,6 +24,7 @@
 /* Begin PBXFileReference section */
 		422672EF2872DC4A00511C2E /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		422672F32872E6FD00511C2E /* AutorizationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutorizationViewController.swift; sourceTree = "<group>"; };
+		422A551B28899D5300AA22F0 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		4231D6B12869A33D000419BA /* RoutineTasks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RoutineTasks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4231D6B42869A33D000419BA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4231D6B62869A33D000419BA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -118,6 +120,7 @@
 			isa = PBXGroup;
 			children = (
 				778098F72883C6C200BB5CAB /* User.swift */,
+				422A551B28899D5300AA22F0 /* Task.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -200,6 +203,7 @@
 				778098FA2883C8F400BB5CAB /* LogInViewController.swift in Sources */,
 				422672F42872E6FD00511C2E /* AutorizationViewController.swift in Sources */,
 				422672F02872DC4A00511C2E /* SettingsViewController.swift in Sources */,
+				422A551C28899D5300AA22F0 /* Task.swift in Sources */,
 				4231D6B72869A33D000419BA /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

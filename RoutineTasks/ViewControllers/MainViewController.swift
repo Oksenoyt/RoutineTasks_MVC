@@ -32,6 +32,7 @@ class MainViewController: UIViewController {
     }
 }
 
+// MARK:  - MainViewController
 extension Date {
     var toRusString: String {
         let dateFormatter = DateFormatter()
