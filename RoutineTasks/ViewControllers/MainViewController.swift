@@ -13,6 +13,7 @@ class MainViewController: UIViewController {
     @IBOutlet weak var addNewItemButton: UIBarButtonItem!
     @IBOutlet weak var backgroundView: UIView!
     
+    @IBOutlet weak var taskListTableView: UITableView!
     @IBOutlet var dayLabels: [UILabel]!
     
     let date = Date()
@@ -20,10 +21,9 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        backgroundView.layer.cornerRadius = 30
         setCalendar()
-        
-//        taskList.delegate  = self
+        taskListTableView.backgroundColor = #colorLiteral(red: 0.9536015391, green: 0.9351417422, blue: 0.9531318545, alpha: 1)
+        taskListTableView.layer.cornerRadius = 30
     }
     
     private func setCalendar() {
@@ -48,11 +48,10 @@ extension MainViewController: UITableViewDataSource {
         var content = cell.defaultContentConfiguration()
         content.text = task.title
         cell.contentConfiguration = content
+        cell.backgroundColor = #colorLiteral(red: 0.9536015391, green: 0.9351417422, blue: 0.9531318545, alpha: 1)
         
         return cell
     }
-    
-
 }
 
 // MARK:  - MainViewController
