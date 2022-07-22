@@ -70,5 +70,4 @@ extension Date {
     func dayBefore(value: Int) -> Date {
         Calendar.current.date(byAdding: .day, value: value, to: Date())!
     }
-    
 }

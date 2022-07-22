@@ -17,7 +17,7 @@ struct Task {
     static func getNewTask() -> [Task] {
         [
             Task(
-                title: "Reading",
+                title: "read",
                 taskColor: "Red"
 //                repetition: "3",
 //                remainders: <#T##Date#>,
@@ -28,7 +28,7 @@ struct Task {
             ),
             
             Task(
-                title: "swimming",
+                title: "swim",
                 taskColor: "Blue"
 //                repetition: "3",
 //                remainders: <#T##Date#>,
@@ -39,31 +39,27 @@ struct Task {
             ),
             
             Task(
-                title: "1swimming",
+                title: "run",
                 taskColor: "Blue"
             ),
             Task(
-                title: "2swimming",
+                title: "walk the dog",
                 taskColor: "Blue"
             ),
             Task(
-                title: "3swimming",
+                title: "wash dishes",
                 taskColor: "Blue"
             ),
             Task(
-                title: "4swimming",
+                title: "run",
                 taskColor: "Blue"
             ),
             Task(
-                title: "5swimming",
+                title: "walk the dog",
                 taskColor: "Blue"
             ),
             Task(
-                title: "6swimming",
-                taskColor: "Blue"
-            ),
-            Task(
-                title: "7swimming",
+                title: "swim",
                 taskColor: "Blue"
             )
         ]
