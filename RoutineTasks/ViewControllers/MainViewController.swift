@@ -16,11 +16,14 @@ class MainViewController: UIViewController {
     @IBOutlet var dayLabels: [UILabel]!
     
     let date = Date()
+    let taskList = Task.getNewTask()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         backgroundView.layer.cornerRadius = 30
         setCalendar()
+        
+//        taskList.delegate  = self
     }
     
     private func setCalendar() {
@@ -30,6 +33,26 @@ class MainViewController: UIViewController {
         dayLabels[3].text = date.dayBefore(value: 1).toRusString
         dayLabels[4].text = date.dayBefore(value: 2).toRusString
     }
+}
+
+// MARK: - UITableViewDataSource
+extension MainViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        taskList.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Task", for: indexPath)
+        let task = taskList[indexPath.row]
+        
+        var content = cell.defaultContentConfiguration()
+        content.text = task.title
+        cell.contentConfiguration = content
+        
+        return cell
+    }
+    
+
 }
 
 // MARK:  - MainViewController
