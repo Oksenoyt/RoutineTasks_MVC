@@ -42,16 +42,17 @@ extension MainViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Task", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "TaskCell", for: indexPath) as? TaskTableViewCell
         let task = taskList[indexPath.row]
+        cell?.nameTaskLabel.text = task.title
         
-        var content = cell.defaultContentConfiguration()
-        content.text = task.title
-        cell.contentConfiguration = content
-        cell.backgroundColor = #colorLiteral(red: 0.9536015391, green: 0.9351417422, blue: 0.9531318545, alpha: 1)
-        
-        return cell
+        return cell!
     }
+}
+
+// MARK: - UITableViewDelegate
+extension MainViewController: UITableViewDelegate {
+    
 }
 
 // MARK:  - MainViewController
@@ -71,3 +72,4 @@ extension Date {
         Calendar.current.date(byAdding: .day, value: value, to: Date())!
     }
 }
+
