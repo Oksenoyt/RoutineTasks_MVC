@@ -7,7 +7,7 @@
 struct Task {
     let title: String
     let color: String
-    let done: Bool
+    let dailyTasks: Bool
 //    let repetition: String
 //    let remainders: Date
 //    let timer: Date
@@ -20,7 +20,7 @@ struct Task {
             Task(
                 title: "read",
                 color: "#c49dcc",
-                done: true
+                dailyTasks: true
 //                repetition: "3",
 //                remainders: <#T##Date#>,
 //                timer: <#T##Date#>,
@@ -32,7 +32,7 @@ struct Task {
             Task(
                 title: "swim",
                 color: "#b096e4",
-                done: true
+                dailyTasks: true
 //                repetition: "3",
 //                remainders: <#T##Date#>,
 //                timer: <#T##Date#>,
@@ -44,62 +44,62 @@ struct Task {
             Task(
                 title: "run",
                 color: "#a8eabc",
-                done: true
+                dailyTasks: true
             ),
             Task(
                 title: "walk the dog",
                 color: "#edc6e0",
-                done: false
+                dailyTasks: false
             ),
             Task(
                 title: "wash dishes",
                 color: "#c49dcc",
-                done: true
+                dailyTasks: true
             ),
             Task(
                 title: "run",
                 color: "#bbece6",
-                done: false
+                dailyTasks: false
             ),
             Task(
                 title: "walk the dog",
                 color: "#c49dcc",
-                done: true
+                dailyTasks: true
             ),
             Task(
                 title: "swim",
                 color: "#c49dcc",
-                done: false
+                dailyTasks: false
             ),
             Task(
                 title: "run",
                 color: "#a8eabc",
-                done: true
+                dailyTasks: true
             ),
             Task(
                 title: "walk the dog",
                 color: "#edc6e0",
-                done: false
+                dailyTasks: false
             ),
             Task(
                 title: "wash dishes",
                 color: "#c49dcc",
-                done: true
+                dailyTasks: true
             ),
             Task(
                 title: "run",
                 color: "#bbece6",
-                done: false
+                dailyTasks: false
             ),
             Task(
                 title: "walk the dog",
                 color: "#c49dcc",
-                done: true
+                dailyTasks: true
             ),
             Task(
                 title: "swim",
                 color: "#c49dcc",
-                done: false
+                dailyTasks: false
             )
         ]
     }

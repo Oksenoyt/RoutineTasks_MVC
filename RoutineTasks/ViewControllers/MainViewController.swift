@@ -49,7 +49,7 @@ extension MainViewController: UITableViewDataSource {
         cell.nameTaskLabel.text = task.title
         
         for checkDoTaskButton in cell.checkDoTaskStackButton {
-            if task.done {
+            if task.dailyTasks {
                 checkDoTaskButton.backgroundColor = UIColor(named: task.color)
             }
         }
