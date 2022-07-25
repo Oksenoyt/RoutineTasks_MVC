@@ -27,8 +27,8 @@ class TaskTableViewCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        checkDoTaskView()
         backgroundColor = #colorLiteral(red: 0.9536015391, green: 0.9351417422, blue: 0.9531318545, alpha: 1)
+        checkDoTaskView()
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

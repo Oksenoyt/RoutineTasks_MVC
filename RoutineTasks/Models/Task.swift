@@ -70,6 +70,36 @@ struct Task {
                 title: "swim",
                 color: "#c49dcc",
                 done: false
+            ),
+            Task(
+                title: "run",
+                color: "#a8eabc",
+                done: true
+            ),
+            Task(
+                title: "walk the dog",
+                color: "#edc6e0",
+                done: false
+            ),
+            Task(
+                title: "wash dishes",
+                color: "#c49dcc",
+                done: true
+            ),
+            Task(
+                title: "run",
+                color: "#bbece6",
+                done: false
+            ),
+            Task(
+                title: "walk the dog",
+                color: "#c49dcc",
+                done: true
+            ),
+            Task(
+                title: "swim",
+                color: "#c49dcc",
+                done: false
             )
         ]
     }
