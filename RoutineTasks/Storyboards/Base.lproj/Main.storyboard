@@ -260,63 +260,56 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="rqf-ZR-hHe">
-                                                    <rect key="frame" x="194" y="2" width="220" height="51"/>
+                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="rqf-ZR-hHe">
+                                                    <rect key="frame" x="208" y="12" width="204" height="31"/>
                                                     <subviews>
-                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rbz-aE-MXO">
-                                                            <rect key="frame" x="0.0" y="5.6666666666666679" width="40" height="40"/>
-                                                            <color key="backgroundColor" systemColor="systemPurpleColor"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="width" secondItem="rbz-aE-MXO" secondAttribute="height" multiplier="1:1" id="0Qp-xs-zuh"/>
-                                                                <constraint firstAttribute="width" constant="40" id="rI2-Ay-Gen"/>
-                                                            </constraints>
-                                                        </view>
-                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w6l-fv-kWo">
-                                                            <rect key="frame" x="45" y="5.6666666666666679" width="40" height="40"/>
-                                                            <color key="backgroundColor" systemColor="systemOrangeColor"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="width" secondItem="w6l-fv-kWo" secondAttribute="height" multiplier="1:1" id="5vz-Kk-DFn"/>
-                                                            </constraints>
-                                                        </view>
-                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ugq-nW-M9v">
-                                                            <rect key="frame" x="90" y="5.6666666666666679" width="40" height="40"/>
-                                                            <color key="backgroundColor" systemColor="systemPinkColor"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="width" secondItem="ugq-nW-M9v" secondAttribute="height" multiplier="1:1" id="B9J-OM-rBQ"/>
-                                                            </constraints>
-                                                        </view>
-                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nuR-nf-FZS">
-                                                            <rect key="frame" x="135" y="5.6666666666666679" width="40" height="40"/>
-                                                            <color key="backgroundColor" systemColor="systemMintColor"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="width" secondItem="nuR-nf-FZS" secondAttribute="height" multiplier="1:1" id="R2a-2d-nI2"/>
-                                                            </constraints>
-                                                        </view>
-                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hl0-KO-7fU">
-                                                            <rect key="frame" x="180" y="5.6666666666666679" width="40" height="40"/>
-                                                            <color key="backgroundColor" systemColor="systemGreenColor"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="width" secondItem="hl0-KO-7fU" secondAttribute="height" multiplier="1:1" id="m0e-9b-46l"/>
-                                                            </constraints>
-                                                        </view>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NRP-Dv-r5j">
+                                                            <rect key="frame" x="0.0" y="0.0" width="36" height="31"/>
+                                                            <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                            <state key="normal" title="Button"/>
+                                                            <buttonConfiguration key="configuration" style="plain" title="✓"/>
+                                                        </button>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NN7-ct-Bwz">
+                                                            <rect key="frame" x="42" y="0.0" width="36" height="31"/>
+                                                            <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                            <state key="normal" title="Button"/>
+                                                            <buttonConfiguration key="configuration" style="plain" title="✓"/>
+                                                        </button>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZbX-4D-k53">
+                                                            <rect key="frame" x="84" y="0.0" width="36" height="31"/>
+                                                            <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                            <state key="normal" title="Button"/>
+                                                            <buttonConfiguration key="configuration" style="plain" title="✓"/>
+                                                        </button>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pls-89-qKA">
+                                                            <rect key="frame" x="126" y="0.0" width="36" height="31"/>
+                                                            <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                            <state key="normal" title="Button"/>
+                                                            <buttonConfiguration key="configuration" style="plain" title="✓"/>
+                                                        </button>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xg5-Cv-gRg">
+                                                            <rect key="frame" x="168" y="0.0" width="36" height="31"/>
+                                                            <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                            <state key="normal" title="Button"/>
+                                                            <buttonConfiguration key="configuration" style="plain" title="✓"/>
+                                                        </button>
                                                     </subviews>
                                                 </stackView>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="hrt-p6-0CS" firstAttribute="centerY" secondItem="UJf-fB-0h2" secondAttribute="centerY" id="Zss-iR-R7B"/>
-                                                <constraint firstItem="rqf-ZR-hHe" firstAttribute="top" secondItem="UJf-fB-0h2" secondAttribute="top" constant="2" id="bC5-PL-c0d"/>
                                                 <constraint firstItem="rqf-ZR-hHe" firstAttribute="centerY" secondItem="UJf-fB-0h2" secondAttribute="centerY" id="jKF-VG-SS3"/>
                                                 <constraint firstItem="hrt-p6-0CS" firstAttribute="leading" secondItem="UJf-fB-0h2" secondAttribute="leadingMargin" id="xju-o7-8Db"/>
-                                                <constraint firstAttribute="trailing" secondItem="rqf-ZR-hHe" secondAttribute="trailing" constant="14" id="zia-cs-hVX"/>
+                                                <constraint firstAttribute="trailing" secondItem="rqf-ZR-hHe" secondAttribute="trailing" constant="16" id="zia-cs-hVX"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="nameTaskLabel" destination="hrt-p6-0CS" id="xt6-JE-J5v"/>
-                                            <outletCollection property="checkDoTaskStackView" destination="rbz-aE-MXO" collectionClass="NSMutableArray" id="HtW-fI-m2g"/>
-                                            <outletCollection property="checkDoTaskStackView" destination="w6l-fv-kWo" collectionClass="NSMutableArray" id="nRK-oY-LUC"/>
-                                            <outletCollection property="checkDoTaskStackView" destination="nuR-nf-FZS" collectionClass="NSMutableArray" id="BAs-sk-tqn"/>
-                                            <outletCollection property="checkDoTaskStackView" destination="hl0-KO-7fU" collectionClass="NSMutableArray" id="Toz-Zh-1qG"/>
-                                            <outletCollection property="checkDoTaskStackView" destination="ugq-nW-M9v" collectionClass="NSMutableArray" id="0Ik-sP-Df5"/>
+                                            <outletCollection property="checkDoTaskStackButton" destination="NRP-Dv-r5j" collectionClass="NSMutableArray" id="k60-Ic-BO2"/>
+                                            <outletCollection property="checkDoTaskStackButton" destination="NN7-ct-Bwz" collectionClass="NSMutableArray" id="chB-XO-fAR"/>
+                                            <outletCollection property="checkDoTaskStackButton" destination="ZbX-4D-k53" collectionClass="NSMutableArray" id="oPG-S7-xEl"/>
+                                            <outletCollection property="checkDoTaskStackButton" destination="Pls-89-qKA" collectionClass="NSMutableArray" id="KxA-Kd-vrn"/>
+                                            <outletCollection property="checkDoTaskStackButton" destination="xg5-Cv-gRg" collectionClass="NSMutableArray" id="bp4-hY-H0M"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -522,21 +515,6 @@
         <image name="profileLarg" width="512" height="512"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemGreenColor">
-            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemMintColor">
-            <color red="0.0" green="0.7803921568627451" blue="0.74509803921568629" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemOrangeColor">
-            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemPinkColor">
-            <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemPurpleColor">
-            <color red="0.68627450980392157" green="0.32156862745098042" blue="0.87058823529411766" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

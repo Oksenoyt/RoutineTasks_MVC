@@ -27,11 +27,11 @@ class MainViewController: UIViewController {
     }
     
     private func setCalendar() {
-        dayLabels[0].text = date.dayBefore(value: -2).toRusString
-        dayLabels[1].text = date.dayBefore(value: -1).toRusString
-        dayLabels[2].text = date.dayBefore(value: 0).toRusString
-        dayLabels[3].text = date.dayBefore(value: 1).toRusString
-        dayLabels[4].text = date.dayBefore(value: 2).toRusString
+        var dayNumber = -2
+        for dayLabel in dayLabels {
+            dayLabel.text = date.dayBefore(value: dayNumber).toRusString
+            dayNumber += 1
+        }
     }
 }
 
@@ -42,11 +42,21 @@ extension MainViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "TaskCell", for: indexPath) as? TaskTableViewCell
-        let task = taskList[indexPath.row]
-        cell?.nameTaskLabel.text = task.title
+        let cellError = tableView.dequeueReusableCell(withIdentifier: "TaskCell", for: indexPath)
         
-        return cell!
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "TaskCell", for: indexPath) as? TaskTableViewCell else { return cellError }
+        let task = taskList[indexPath.row]
+        cell.nameTaskLabel.text = task.title
+        
+        for checkDoTaskButton in cell.checkDoTaskStackButton {
+            if task.done {
+                checkDoTaskButton.backgroundColor = UIColor(named: task.color)
+            }
+        }
+         
+        return cell
+        
+//        переделать!!!!
     }
 }
 

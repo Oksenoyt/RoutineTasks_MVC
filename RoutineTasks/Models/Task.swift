@@ -6,7 +6,8 @@
 //
 struct Task {
     let title: String
-    let taskColor: String
+    let color: String
+    let done: Bool
 //    let repetition: String
 //    let remainders: Date
 //    let timer: Date
@@ -18,7 +19,8 @@ struct Task {
         [
             Task(
                 title: "read",
-                taskColor: "Red"
+                color: "#c49dcc",
+                done: true
 //                repetition: "3",
 //                remainders: <#T##Date#>,
 //                timer: <#T##Date#>,
@@ -29,7 +31,8 @@ struct Task {
             
             Task(
                 title: "swim",
-                taskColor: "Blue"
+                color: "#b096e4",
+                done: true
 //                repetition: "3",
 //                remainders: <#T##Date#>,
 //                timer: <#T##Date#>,
@@ -40,27 +43,33 @@ struct Task {
             
             Task(
                 title: "run",
-                taskColor: "Blue"
+                color: "#a8eabc",
+                done: true
             ),
             Task(
                 title: "walk the dog",
-                taskColor: "Blue"
+                color: "#edc6e0",
+                done: false
             ),
             Task(
                 title: "wash dishes",
-                taskColor: "Blue"
+                color: "#c49dcc",
+                done: true
             ),
             Task(
                 title: "run",
-                taskColor: "Blue"
+                color: "#bbece6",
+                done: false
             ),
             Task(
                 title: "walk the dog",
-                taskColor: "Blue"
+                color: "#c49dcc",
+                done: true
             ),
             Task(
                 title: "swim",
-                taskColor: "Blue"
+                color: "#c49dcc",
+                done: false
             )
         ]
     }

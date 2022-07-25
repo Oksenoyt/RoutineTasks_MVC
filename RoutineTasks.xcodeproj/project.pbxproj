@@ -18,6 +18,7 @@
 		4231D6C12869A341000419BA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4231D6BF2869A341000419BA /* LaunchScreen.storyboard */; };
 		423BA0AF287AE4B000D00A71 /* NewItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423BA0AE287AE4B000D00A71 /* NewItemViewController.swift */; };
 		426D579A288D5260003DC0BF /* TaskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 426D5799288D5260003DC0BF /* TaskTableViewCell.swift */; };
+		42F289B4288E8F2700C5DF76 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 42F289B3288E8F2700C5DF76 /* Colors.xcassets */; };
 		778098F82883C6C200BB5CAB /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 778098F72883C6C200BB5CAB /* User.swift */; };
 		778098FA2883C8F400BB5CAB /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 778098F92883C8F400BB5CAB /* LogInViewController.swift */; };
 /* End PBXBuildFile section */
@@ -36,6 +37,7 @@
 		4231D6C22869A341000419BA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		423BA0AE287AE4B000D00A71 /* NewItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewItemViewController.swift; sourceTree = "<group>"; };
 		426D5799288D5260003DC0BF /* TaskTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskTableViewCell.swift; sourceTree = "<group>"; };
+		42F289B3288E8F2700C5DF76 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		778098F72883C6C200BB5CAB /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		778098F92883C8F400BB5CAB /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -115,6 +117,7 @@
 			isa = PBXGroup;
 			children = (
 				4231D6BD2869A341000419BA /* Assets.xcassets */,
+				42F289B3288E8F2700C5DF76 /* Colors.xcassets */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -195,6 +198,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4231D6C12869A341000419BA /* LaunchScreen.storyboard in Resources */,
+				42F289B4288E8F2700C5DF76 /* Colors.xcassets in Resources */,
 				4231D6BE2869A341000419BA /* Assets.xcassets in Resources */,
 				4231D6BC2869A33D000419BA /* Main.storyboard in Resources */,
 			);
