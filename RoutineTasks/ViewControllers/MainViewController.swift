@@ -49,14 +49,13 @@ extension MainViewController: UITableViewDataSource {
         cell.nameTaskLabel.text = task.title
         
         for checkDoTaskButton in cell.checkDoTaskStackButton {
-            if task.dailyTasks {
-                checkDoTaskButton.backgroundColor = UIColor(named: task.color)
+            if task.completionDays["26-07-2022"] ?? false  {
+                checkDoTaskButton.backgroundColor = UIColor.init(named: task.color)
             }
         }
-         
         return cell
         
-//        переделать!!!!
+        //        переделать!!!!
     }
 }
 

@@ -7,7 +7,7 @@
 struct Task {
     let title: String
     let color: String
-    let dailyTasks: Bool
+    let completionDays: [String: Bool]
 //    let repetition: String
 //    let remainders: Date
 //    let timer: Date
@@ -20,7 +20,7 @@ struct Task {
             Task(
                 title: "read",
                 color: "#c49dcc",
-                dailyTasks: true
+                completionDays: ["26-07-2022": true]
 //                repetition: "3",
 //                remainders: <#T##Date#>,
 //                timer: <#T##Date#>,
@@ -32,7 +32,7 @@ struct Task {
             Task(
                 title: "swim",
                 color: "#b096e4",
-                dailyTasks: true
+                completionDays: ["26-07-2022": true]
 //                repetition: "3",
 //                remainders: <#T##Date#>,
 //                timer: <#T##Date#>,
@@ -44,62 +44,62 @@ struct Task {
             Task(
                 title: "run",
                 color: "#a8eabc",
-                dailyTasks: true
+                completionDays: ["26-07-2022": true]
             ),
             Task(
                 title: "walk the dog",
                 color: "#edc6e0",
-                dailyTasks: false
+                completionDays: ["26-07-2022": false]
             ),
             Task(
                 title: "wash dishes",
                 color: "#c49dcc",
-                dailyTasks: true
+                completionDays: ["26-07-2022": true]
             ),
             Task(
                 title: "run",
                 color: "#bbece6",
-                dailyTasks: false
+                completionDays: ["26-07-2022": false]
             ),
             Task(
                 title: "walk the dog",
                 color: "#c49dcc",
-                dailyTasks: true
+                completionDays: ["26-07-2022": true]
             ),
             Task(
                 title: "swim",
                 color: "#c49dcc",
-                dailyTasks: false
+                completionDays: ["26-07-2022": false]
             ),
             Task(
                 title: "run",
                 color: "#a8eabc",
-                dailyTasks: true
+                completionDays: ["26-07-2022": true]
             ),
             Task(
                 title: "walk the dog",
                 color: "#edc6e0",
-                dailyTasks: false
+                completionDays: ["26-07-2022": false]
             ),
             Task(
                 title: "wash dishes",
                 color: "#c49dcc",
-                dailyTasks: true
+                completionDays: ["26-07-2022": true]
             ),
             Task(
                 title: "run",
                 color: "#bbece6",
-                dailyTasks: false
+                completionDays: ["26-07-2022": false]
             ),
             Task(
                 title: "walk the dog",
                 color: "#c49dcc",
-                dailyTasks: true
+                completionDays: ["26-07-2022": true]
             ),
             Task(
                 title: "swim",
                 color: "#c49dcc",
-                dailyTasks: false
+                completionDays: ["26-07-2022": false]
             )
         ]
     }
