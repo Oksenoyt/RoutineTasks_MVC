@@ -69,9 +69,7 @@ extension MainViewController: UITableViewDataSource {
                 break
             }
         }
-        return cell
-        
-        //        переделать!!!!
+        return cell    //        переделать!!!!
     }
 }
 

@@ -84,7 +84,7 @@ struct Task {
             Task(
                 title: "wash dishes",
                 color: "#c49dcc",
-                completionDays: ["25-07-2022": true]
+                completionDays: ["25-07-2022": true, "26-07-2022": true]
             ),
             Task(
                 title: "run",
@@ -104,3 +104,11 @@ struct Task {
         ]
     }
 }
+
+//class TaskManager {
+//    let dataStore = DataStore()
+//
+//    func addMarkDone() {
+//
+//    }
+//}
