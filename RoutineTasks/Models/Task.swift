@@ -32,7 +32,7 @@ struct Task {
             Task(
                 title: "swim",
                 color: "#b096e4",
-                completionDays: ["26-07-2022": true]
+                completionDays: ["24-07-2022": true]
 //                repetition: "3",
 //                remainders: <#T##Date#>,
 //                timer: <#T##Date#>,
@@ -44,7 +44,7 @@ struct Task {
             Task(
                 title: "run",
                 color: "#a8eabc",
-                completionDays: ["26-07-2022": true]
+                completionDays: ["25-07-2022": true]
             ),
             Task(
                 title: "walk the dog",
@@ -64,7 +64,7 @@ struct Task {
             Task(
                 title: "walk the dog",
                 color: "#c49dcc",
-                completionDays: ["26-07-2022": true]
+                completionDays: ["24-07-2022": true]
             ),
             Task(
                 title: "swim",
@@ -79,12 +79,12 @@ struct Task {
             Task(
                 title: "walk the dog",
                 color: "#edc6e0",
-                completionDays: ["26-07-2022": false]
+                completionDays: ["24-07-2022": false]
             ),
             Task(
                 title: "wash dishes",
                 color: "#c49dcc",
-                completionDays: ["26-07-2022": true]
+                completionDays: ["25-07-2022": true]
             ),
             Task(
                 title: "run",
@@ -94,7 +94,7 @@ struct Task {
             Task(
                 title: "walk the dog",
                 color: "#c49dcc",
-                completionDays: ["26-07-2022": true]
+                completionDays: ["25-07-2022": true]
             ),
             Task(
                 title: "swim",

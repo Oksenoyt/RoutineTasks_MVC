@@ -49,8 +49,24 @@ extension MainViewController: UITableViewDataSource {
         cell.nameTaskLabel.text = task.title
         
         for checkDoTaskButton in cell.checkDoTaskStackButton {
-            if task.completionDays["26-07-2022"] ?? false  {
-                checkDoTaskButton.backgroundColor = UIColor.init(named: task.color)
+            switch checkDoTaskButton.tag {
+            case 0:
+                let dataForButton = "24-07-2022"
+                if task.completionDays[dataForButton] ?? false  {
+                    checkDoTaskButton.backgroundColor = UIColor.init(named: task.color)
+                }
+            case 1:
+                let dataForButton = "25-07-2022"
+                if task.completionDays[dataForButton] ?? false  {
+                    checkDoTaskButton.backgroundColor = UIColor.init(named: task.color)
+                }
+            case 2:
+                let dataForButton = "26-07-2022"
+                if task.completionDays[dataForButton] ?? false  {
+                    checkDoTaskButton.backgroundColor = UIColor.init(named: task.color)
+                }
+            default:
+                break
             }
         }
         return cell
@@ -60,9 +76,7 @@ extension MainViewController: UITableViewDataSource {
 }
 
 // MARK: - UITableViewDelegate
-extension MainViewController: UITableViewDelegate {
-    
-}
+
 
 // MARK:  - MainViewController
 extension Date {
