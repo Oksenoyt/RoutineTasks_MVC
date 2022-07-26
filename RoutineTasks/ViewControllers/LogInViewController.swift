@@ -24,6 +24,13 @@ override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         view.endEditing(true)
     }
     
+    @IBAction func logInButtonPressed() {
+        guard loginTextField.text == user.login,
+        passwordTextField.text == user.password else {
+            showAlert(title: "Error", message: "Error")
+            return
+        }
+    }
     
     
 }
