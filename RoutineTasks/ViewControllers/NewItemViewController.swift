@@ -10,8 +10,8 @@ import UIKit
 class NewItemViewController: UIViewController {
     
     @IBOutlet weak var nameTextField: UITextField!
-    @IBOutlet weak var itemColorUIStackView: UIStackView!
     
+    @IBOutlet var itemColorUIStackView: [UIButton]!
     
 
     override func viewDidLoad() {
@@ -20,15 +20,12 @@ class NewItemViewController: UIViewController {
 //        nameTextField.layer.borderColor = UIColor.black.cgColor
 //        nameTextField.layer.cornerRadius = 25
 //        nameTextField.layer.masksToBounds = true
-        
-        // Do any additional setup after loading the view.
+
     }
     override func viewWillLayoutSubviews() {
-        itemColorUIStackView.viewWithTag(1)?.layer.cornerRadius = (itemColorUIStackView.viewWithTag(1)?.frame.width ?? 0) / 2
-        itemColorUIStackView.viewWithTag(2)?.layer.cornerRadius = (itemColorUIStackView.viewWithTag(1)?.frame.width ?? 0) / 2
-        itemColorUIStackView.viewWithTag(3)?.layer.cornerRadius = (itemColorUIStackView.viewWithTag(1)?.frame.width ?? 0) / 2
-        itemColorUIStackView.viewWithTag(4)?.layer.cornerRadius = (itemColorUIStackView.viewWithTag(1)?.frame.width ?? 0) / 2
-        itemColorUIStackView.viewWithTag(5)?.layer.cornerRadius = (itemColorUIStackView.viewWithTag(1)?.frame.width ?? 0) / 2
+        for itemColorView in itemColorUIStackView {
+            itemColorView.layer.cornerRadius = 15
+        }
     }
 
     /*

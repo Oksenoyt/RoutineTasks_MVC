@@ -31,8 +31,9 @@ class TaskTableViewCell: UITableViewCell {
         checkDoTaskView()
     }
 
-    @IBAction func setDoneTask(_ sender: Any) {
-        
+
+    @IBAction func setDoneTask(_ sender: UIButton) {
+//        task.completionDays[dataForButton]?.toggle()
     }
     
     

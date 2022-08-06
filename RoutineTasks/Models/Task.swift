@@ -7,7 +7,7 @@
 struct Task {
     let title: String
     let color: String
-    let completionDays: [String: Bool]
+    var completionDays: [String: Bool]
 //    let repetition: String
 //    let remainders: Date
 //    let timer: Date
@@ -32,7 +32,7 @@ struct Task {
             Task(
                 title: "swim",
                 color: "#b096e4",
-                completionDays: ["24-07-2022": true]
+                completionDays: ["24-07-2022": true, "26-07-2022": true]
 //                repetition: "3",
 //                remainders: <#T##Date#>,
 //                timer: <#T##Date#>,
