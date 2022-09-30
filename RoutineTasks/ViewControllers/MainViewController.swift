@@ -48,27 +48,27 @@ extension MainViewController: UITableViewDataSource {
         let task = taskList[indexPath.row]
         cell.nameTaskLabel.text = task.title
         
-        for checkDoTaskButton in cell.checkDoTaskStackButton {
-            switch checkDoTaskButton.tag {
-            case 0:
-                let dataForButton = "24-07-2022"
-                if task.completionDays[dataForButton] ?? false  {
-                    checkDoTaskButton.backgroundColor = UIColor.init(named: task.color)
-                }
-            case 1:
-                let dataForButton = "25-07-2022"
-                if task.completionDays[dataForButton] ?? false  {
-                    checkDoTaskButton.backgroundColor = UIColor.init(named: task.color)
-                }
-            case 2:
-                let dataForButton = "26-07-2022"
-                if task.completionDays[dataForButton] ?? false  {
-                    checkDoTaskButton.backgroundColor = UIColor.init(named: task.color)
-                }
-            default:
-                break
-            }
-        }
+//        for checkDoTaskButton in cell.checkDoTaskStackButton {
+//            switch checkDoTaskButton.tag {
+//            case 0:
+//                let dataForButton = "24-07-2022"
+//                if task.completionDays[dataForButton] ?? false  {
+//                    checkDoTaskButton.backgroundColor = UIColor.init(named: task.color)
+//                }
+//            case 1:
+//                let dataForButton = "25-07-2022"
+//                if task.completionDays[dataForButton] ?? false  {
+//                    checkDoTaskButton.backgroundColor = UIColor.init(named: task.color)
+//                }
+//            case 2:
+//                let dataForButton = "26-07-2022"
+//                if task.completionDays[dataForButton] ?? false  {
+//                    checkDoTaskButton.backgroundColor = UIColor.init(named: task.color)
+//                }
+//            default:
+//                break
+//            }
+//        }
         return cell    //        переделать!!!!
     }
 }

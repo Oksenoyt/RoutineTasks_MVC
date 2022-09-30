@@ -19,6 +19,8 @@
 		423BA0AF287AE4B000D00A71 /* NewItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423BA0AE287AE4B000D00A71 /* NewItemViewController.swift */; };
 		426D579A288D5260003DC0BF /* TaskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 426D5799288D5260003DC0BF /* TaskTableViewCell.swift */; };
 		42F289B4288E8F2700C5DF76 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 42F289B3288E8F2700C5DF76 /* Colors.xcassets */; };
+		42FE9E4E28E5F95C00A6F9D7 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42FE9E4D28E5F95C00A6F9D7 /* StorageManager.swift */; };
+		42FE9E5128E5F9AF00A6F9D7 /* Tasks.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 42FE9E4F28E5F9AF00A6F9D7 /* Tasks.xcdatamodeld */; };
 		778098F82883C6C200BB5CAB /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 778098F72883C6C200BB5CAB /* User.swift */; };
 		778098FA2883C8F400BB5CAB /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 778098F92883C8F400BB5CAB /* LogInViewController.swift */; };
 /* End PBXBuildFile section */
@@ -38,6 +40,8 @@
 		423BA0AE287AE4B000D00A71 /* NewItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewItemViewController.swift; sourceTree = "<group>"; };
 		426D5799288D5260003DC0BF /* TaskTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskTableViewCell.swift; sourceTree = "<group>"; };
 		42F289B3288E8F2700C5DF76 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
+		42FE9E4D28E5F95C00A6F9D7 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
+		42FE9E5028E5F9AF00A6F9D7 /* Tasks.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Tasks.xcdatamodel; sourceTree = "<group>"; };
 		778098F72883C6C200BB5CAB /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		778098F92883C8F400BB5CAB /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -72,12 +76,14 @@
 		4231D6B32869A33D000419BA /* RoutineTasks */ = {
 			isa = PBXGroup;
 			children = (
+				42FE9E4C28E5F91500A6F9D7 /* Services */,
 				426D5798288D51F4003DC0BF /* Views */,
 				778098F62883C6AD00BB5CAB /* Models */,
 				423BA0AB287AE2CC00D00A71 /* ViewControllers */,
 				423BA0AC287AE2EB00D00A71 /* Storyboards */,
 				423BA0AA287AE2BE00D00A71 /* Apps */,
 				423BA0AD287AE35300D00A71 /* Resources */,
+				42FE9E4F28E5F9AF00A6F9D7 /* Tasks.xcdatamodeld */,
 			);
 			path = RoutineTasks;
 			sourceTree = "<group>";
@@ -128,6 +134,14 @@
 				426D5799288D5260003DC0BF /* TaskTableViewCell.swift */,
 			);
 			name = Views;
+			sourceTree = "<group>";
+		};
+		42FE9E4C28E5F91500A6F9D7 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				42FE9E4D28E5F95C00A6F9D7 /* StorageManager.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 		778098F62883C6AD00BB5CAB /* Models */ = {
@@ -213,11 +227,13 @@
 			files = (
 				4231D6B92869A33D000419BA /* MainViewController.swift in Sources */,
 				4231D6B52869A33D000419BA /* AppDelegate.swift in Sources */,
+				42FE9E4E28E5F95C00A6F9D7 /* StorageManager.swift in Sources */,
 				426D579A288D5260003DC0BF /* TaskTableViewCell.swift in Sources */,
 				778098F82883C6C200BB5CAB /* User.swift in Sources */,
 				423BA0AF287AE4B000D00A71 /* NewItemViewController.swift in Sources */,
 				778098FA2883C8F400BB5CAB /* LogInViewController.swift in Sources */,
 				422672F42872E6FD00511C2E /* AutorizationViewController.swift in Sources */,
+				42FE9E5128E5F9AF00A6F9D7 /* Tasks.xcdatamodeld in Sources */,
 				422672F02872DC4A00511C2E /* SettingsViewController.swift in Sources */,
 				422A551C28899D5300AA22F0 /* Task.swift in Sources */,
 				4231D6B72869A33D000419BA /* SceneDelegate.swift in Sources */,
@@ -440,6 +456,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		42FE9E4F28E5F9AF00A6F9D7 /* Tasks.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				42FE9E5028E5F9AF00A6F9D7 /* Tasks.xcdatamodel */,
+			);
+			currentVersion = 42FE9E5028E5F9AF00A6F9D7 /* Tasks.xcdatamodel */;
+			path = Tasks.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 4231D6A92869A33D000419BA /* Project object */;
 }
