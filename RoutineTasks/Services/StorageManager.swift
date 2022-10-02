@@ -29,11 +29,16 @@ class StorageManager {
     }
     
     // MARK: - CRUD
-    func create(_ taskName: String, color: String, completion: (Task) -> Void) {
+    func create(_ taskName: String, color: String, curentData: Date, completion: (Task) -> Void) {
         let task = Task(context: viewContext)
+        let completionDays = CompletionDays(context: viewContext)
+        
         task.title = taskName
         task.color = color
-        task.
+        completionDays.task = task
+        completionDays.date = curentData
+        completionDays.isDone = Bool.random()//убрать
+        
         completion(task)
         saveContext()
     }
@@ -49,8 +54,41 @@ class StorageManager {
         }
     }
     
-    func update(_ task: Task, newName: String) {
+    func updateData(currentTask: String, currentDate: Date, completion: (Result<[CompletionDays], Error>) -> Void) {
+        let fetchRequest = CompletionDays.fetchRequest()
+        do {
+            let taskPredicate = NSPredicate(
+                format: "task == %@", currentTask
+            )
+
+            let datePredicate = NSPredicate(
+                format: "date == %@", currentDate as CVarArg
+            )
+            fetchRequest.predicate = NSCompoundPredicate(
+                andPredicateWithSubpredicates: [
+                    taskPredicate,
+                    datePredicate
+                ]
+            )
+            
+            let objects = try viewContext.fetch(fetchRequest)
+            print("objects1")
+            print(objects)
+            objects.first?.isDone.toggle()
+            saveContext()
+            print("objects2")
+            print(objects)
+            completion(.success(objects))
+        } catch let error {
+            completion(.failure(error))
+        }
+    }
+    
+    
+    
+    func update(_ task: Task, newName: String, isDone: Bool ) {
         task.title = newName
+        
         saveContext()
     }
     
@@ -58,7 +96,7 @@ class StorageManager {
         viewContext.delete(task)
         saveContext()
     }
-
+    
     // MARK: - Core Data Saving support
     func saveContext() {
         if viewContext.hasChanges {

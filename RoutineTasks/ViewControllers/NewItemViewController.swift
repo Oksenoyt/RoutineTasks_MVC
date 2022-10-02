@@ -28,6 +28,33 @@ class NewItemViewController: UIViewController {
         }
     }
 
+    @IBAction func createButton(_ sender: UIButton) {
+        var name = "Уборка домааа1" //let
+        let color = "#c49dcc"
+        var curentData = Date() //let
+        
+        StorageManager.shared.create(name, color: color, curentData: curentData) { task in
+            print(1)
+        }
+        name = "Уборка домааа1"
+        curentData = Date().dayBefore(value: 1)
+        StorageManager.shared.create(name, color: color, curentData: curentData) { task in
+            print(2)
+        }
+        name = "Уборка домааа1"
+        curentData = Date().dayBefore(value: 2)
+        StorageManager.shared.create(name, color: color, curentData: curentData) { task in
+            print(3)
+        }
+        name = "qweqwe3"
+        curentData = Date().dayBefore(value: 3)
+        StorageManager.shared.create(name, color: color, curentData: curentData) { task in
+            print(4)
+        }
+        
+    }
+    
+    
     /*
     // MARK: - Navigation
 

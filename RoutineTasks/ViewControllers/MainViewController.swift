@@ -17,15 +17,20 @@ class MainViewController: UIViewController {
     @IBOutlet var dayLabels: [UILabel]!
     
     let date = Date()
-    let taskList = Task.getNewTask()
+    var taskList:[Task] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setCalendar()
         taskListTableView.backgroundColor = #colorLiteral(red: 0.9536015391, green: 0.9351417422, blue: 0.9531318545, alpha: 1)
         taskListTableView.layer.cornerRadius = 30
+        fetchData()
+        print(taskList)
     }
     
+    @IBAction func testButton(_ sender: Any) {
+        fetchData()
+    }
     private func setCalendar() {
         var dayNumber = -2
         for dayLabel in dayLabels {
@@ -33,7 +38,20 @@ class MainViewController: UIViewController {
             dayNumber += 1
         }
     }
+    
+    private func fetchData() {
+        StorageManager.shared.fetchData { [unowned self] result in
+            switch result {
+            case .success(let tasks):
+                self.taskList = tasks
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+    }
 }
+
+
 
 // MARK: - UITableViewDataSource
 extension MainViewController: UITableViewDataSource {
@@ -46,30 +64,9 @@ extension MainViewController: UITableViewDataSource {
         
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "TaskCell", for: indexPath) as? TaskTableViewCell else { return cellError }
         let task = taskList[indexPath.row]
-        cell.nameTaskLabel.text = task.title
+        cell.configure(with: task)
         
-//        for checkDoTaskButton in cell.checkDoTaskStackButton {
-//            switch checkDoTaskButton.tag {
-//            case 0:
-//                let dataForButton = "24-07-2022"
-//                if task.completionDays[dataForButton] ?? false  {
-//                    checkDoTaskButton.backgroundColor = UIColor.init(named: task.color)
-//                }
-//            case 1:
-//                let dataForButton = "25-07-2022"
-//                if task.completionDays[dataForButton] ?? false  {
-//                    checkDoTaskButton.backgroundColor = UIColor.init(named: task.color)
-//                }
-//            case 2:
-//                let dataForButton = "26-07-2022"
-//                if task.completionDays[dataForButton] ?? false  {
-//                    checkDoTaskButton.backgroundColor = UIColor.init(named: task.color)
-//                }
-//            default:
-//                break
-//            }
-//        }
-        return cell    //        переделать!!!!
+        return cell 
     }
 }
 
