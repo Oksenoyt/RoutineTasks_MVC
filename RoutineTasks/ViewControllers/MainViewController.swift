@@ -28,9 +28,6 @@ class MainViewController: UIViewController {
         print(taskList)
     }
     
-    @IBAction func testButton(_ sender: Any) {
-        fetchData()
-    }
     private func setCalendar() {
         var dayNumber = -2
         for dayLabel in dayLabels {

@@ -8,12 +8,14 @@
 import UIKit
 
 class NewItemViewController: UIViewController {
+    let date = DateManager()
     
     @IBOutlet weak var nameTextField: UITextField!
     
     @IBOutlet var itemColorUIStackView: [UIButton]!
     
-
+    @IBOutlet weak var createButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 //        nameTextField.layer.borderWidth = 2
@@ -23,6 +25,12 @@ class NewItemViewController: UIViewController {
 
     }
     override func viewWillLayoutSubviews() {
+        createButton.layer.cornerRadius = 15
+        view.layer.cornerRadius = 30
+//        nameTextField.borderStyle = .roundedRect
+        nameTextField.layer.cornerRadius = 30
+        nameTextField.clearButtonMode = .whileEditing
+        
         for itemColorView in itemColorUIStackView {
             itemColorView.layer.cornerRadius = 15
         }
@@ -31,24 +39,24 @@ class NewItemViewController: UIViewController {
     @IBAction func createButton(_ sender: UIButton) {
         var name = "Уборка домааа1" //let
         let color = "#c49dcc"
-        var curentData = Date() //let
+        let currentData = date.getDateString(dayBefore: 0)
+        //сделать проверку на одинаковые названия
         
-        StorageManager.shared.create(name, color: color, curentData: curentData) { task in
+        StorageManager.shared.create(taskName: name, color: color, startDate: date.getDateString(dayBefore: 0)) { task in
             print(1)
         }
         name = "Уборка домааа1"
-        curentData = Date().dayBefore(value: 1)
-        StorageManager.shared.create(name, color: color, curentData: curentData) { task in
+        StorageManager.shared.create(taskName: name, color: color, startDate: date.getDateString(dayBefore: 1)) { task in
             print(2)
         }
         name = "Уборка домааа1"
-        curentData = Date().dayBefore(value: 2)
-        StorageManager.shared.create(name, color: color, curentData: curentData) { task in
+        
+        StorageManager.shared.create(taskName: name, color: color, startDate: date.getDateString(dayBefore: 2)) { task in
             print(3)
         }
         name = "qweqwe3"
-        curentData = Date().dayBefore(value: 3)
-        StorageManager.shared.create(name, color: color, curentData: curentData) { task in
+        
+        StorageManager.shared.create(taskName: name, color: color, startDate: date.getDateString(dayBefore: 3)) { task in
             print(4)
         }
         

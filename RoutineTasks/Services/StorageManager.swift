@@ -29,14 +29,14 @@ class StorageManager {
     }
     
     // MARK: - CRUD
-    func create(_ taskName: String, color: String, curentData: Date, completion: (Task) -> Void) {
+    func create(taskName: String, color: String, startDate: String, completion: (Task) -> Void) { //удалить дату из создания
         let task = Task(context: viewContext)
         let completionDays = CompletionDays(context: viewContext)
         
         task.title = taskName
         task.color = color
         completionDays.task = task
-        completionDays.date = curentData
+        completionDays.date = startDate
         completionDays.isDone = Bool.random()//убрать
         
         completion(task)
@@ -54,15 +54,15 @@ class StorageManager {
         }
     }
     
-    func updateData(currentTask: String, currentDate: Date, completion: (Result<[CompletionDays], Error>) -> Void) {
-        let fetchRequest = CompletionDays.fetchRequest()
+    func updateData(taskName: String, taskDate: String, completion: (Result<Task, Error>) -> Void) {
+        let fetchRequest = Task.fetchRequest()
         do {
             let taskPredicate = NSPredicate(
-                format: "task == %@", currentTask
+                format: "title == %@", taskName
             )
-
+            
             let datePredicate = NSPredicate(
-                format: "date == %@", currentDate as CVarArg
+                format: "completion.date == %@", taskDate as CVarArg //что это
             )
             fetchRequest.predicate = NSCompoundPredicate(
                 andPredicateWithSubpredicates: [
@@ -73,12 +73,19 @@ class StorageManager {
             
             let objects = try viewContext.fetch(fetchRequest)
             print("objects1")
-            print(objects)
-            objects.first?.isDone.toggle()
+//            print(objects)
+            guard let task = objects.first else {
+                //написать ошибку
+                return }
+            print(task.completion.isDone)
+            task.completion.isDone.toggle()
             saveContext()
             print("objects2")
-            print(objects)
-            completion(.success(objects))
+//            print(objects)
+            print(task.completion.isDone)
+            
+//            print(task)
+            completion(.success(task))
         } catch let error {
             completion(.failure(error))
         }

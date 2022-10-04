@@ -16,7 +16,7 @@ extension CompletionDays {
         return NSFetchRequest<CompletionDays>(entityName: "CompletionDays")
     }
 
-    @NSManaged public var date: Date
+    @NSManaged public var date: String
     @NSManaged public var isDone: Bool
     @NSManaged public var task: Task
 
