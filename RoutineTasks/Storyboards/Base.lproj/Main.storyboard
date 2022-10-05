@@ -128,11 +128,11 @@
                                                     </button>
                                                 </subviews>
                                             </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="107" translatesAutoresizingMaskIntoConstraints="NO" id="fKq-0h-OsD">
+                                            <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="200" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="fKq-0h-OsD">
                                                 <rect key="frame" x="0.0" y="224" width="396" height="31"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Автоматическая отметка" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CS5-te-xNx">
-                                                        <rect key="frame" x="0.0" y="5.3333333333333712" width="240" height="20.333333333333332"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Автоматическая отметка" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kbc-js-2IX">
+                                                        <rect key="frame" x="0.0" y="0.0" width="199.33333333333334" height="31"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
