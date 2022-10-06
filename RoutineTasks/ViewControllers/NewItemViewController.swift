@@ -34,7 +34,8 @@ class NewItemViewController: UIViewController {
     
     @IBAction func createButton(_ sender: UIButton) {
         guard let name = nameTextField.text, !name.isEmpty else {
-            // сделать алерт
+            showAlert(with: "Заполните название задачи", and: "qwewqweqwe")
+            //текст
             return }
         
 //        var name = "Уборка домааа1" //let
@@ -89,4 +90,11 @@ class NewItemViewController: UIViewController {
      }
      */
     
+}
+
+extension NewItemViewController {
+    private func showAlert(with title: String, and message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .actionSheet)
+        present(alert, animated: true)
+    }
 }
