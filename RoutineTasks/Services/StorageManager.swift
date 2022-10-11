@@ -72,19 +72,12 @@ class StorageManager {
             )
             
             let objects = try viewContext.fetch(fetchRequest)
-            print("objects1")
-//            print(objects)
             guard let task = objects.first else {
                 //написать ошибку
                 return }
             print(task.completion.isDone)
             task.completion.isDone.toggle()
             saveContext()
-            print("objects2")
-//            print(objects)
-            print(task.completion.isDone)
-            
-//            print(task)
             completion(.success(task))
         } catch let error {
             completion(.failure(error))

@@ -9,11 +9,10 @@ import UIKit
 
 class NewItemViewController: UIViewController {
     let date = DateManager()
+    var delegate:NewItemViewControllerDelegate!
     
     @IBOutlet weak var nameTextField: UITextField!
-    
     @IBOutlet var itemColorUIStackView: [UIButton]!
-    
     @IBOutlet weak var createButton: UIButton!
     
     override func viewDidLoad() {
@@ -43,9 +42,10 @@ class NewItemViewController: UIViewController {
         let currentData = date.getDateString(dayBefore: 0)
         
         StorageManager.shared.create(taskName: name, color: color, startDate: currentData) { task in
-            print(1)
+            print(task)
+            delegate.addNewTask(task: task)
         }
-        
+        dismiss(animated: true)
         
         //        var name = "Уборка домааа1" //let
         //        let color = "#c49dcc"
@@ -79,17 +79,6 @@ class NewItemViewController: UIViewController {
         nameTextField.returnKeyType = UIReturnKeyType.done ///????
         //       nameTextField.delegate = self
     }
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
-    
 }
 
 extension NewItemViewController {

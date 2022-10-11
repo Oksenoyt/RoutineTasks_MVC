@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol NewItemViewControllerDelegate {
+    func addNewTask(task: Task)
+}
+
 class MainViewController: UIViewController {
     
     @IBOutlet weak var settingsButton: UIBarButtonItem!
@@ -48,8 +52,6 @@ class MainViewController: UIViewController {
     }
 }
 
-
-
 // MARK: - UITableViewDataSource
 extension MainViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -68,7 +70,9 @@ extension MainViewController: UITableViewDataSource {
 }
 
 // MARK: - UITableViewDelegate
-
+//extension MainViewController: UITableViewDelegate {
+//
+//}
 
 // MARK:  - MainViewController
 extension Date {
@@ -88,3 +92,10 @@ extension Date {
     }
 }
 
+// MARK: - NewItemViewControllerDelegate
+extension MainViewController: NewItemViewControllerDelegate {
+    func addNewTask(task: Task) {
+        taskList.append(task)
+//        tableView.reloadData()
+    }
+}
