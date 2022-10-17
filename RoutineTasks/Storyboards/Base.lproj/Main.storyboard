@@ -353,18 +353,12 @@
                                                             <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                             <state key="normal" title="Button"/>
                                                             <buttonConfiguration key="configuration" style="plain" title="✓"/>
-                                                            <connections>
-                                                                <action selector="setDoneTask:" destination="c5M-5i-roO" eventType="touchUpInside" id="1sK-fW-VM1"/>
-                                                            </connections>
                                                         </button>
                                                         <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xg5-Cv-gRg">
                                                             <rect key="frame" x="177.33333333333334" y="0.0" width="38.333333333333343" height="34.333333333333336"/>
                                                             <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                             <state key="normal" title="Button"/>
                                                             <buttonConfiguration key="configuration" style="plain" title="✓"/>
-                                                            <connections>
-                                                                <action selector="setDoneTask:" destination="c5M-5i-roO" eventType="touchUpInside" id="SWp-HB-oR7"/>
-                                                            </connections>
                                                         </button>
                                                     </subviews>
                                                 </stackView>
