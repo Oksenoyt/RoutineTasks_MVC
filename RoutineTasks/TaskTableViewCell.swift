@@ -9,7 +9,8 @@ import UIKit
 
 class TaskTableViewCell: UITableViewCell {
     private let date = DateManager()
-    var task: Task?
+    var task: Task!
+    var completionDays: [CompletionDays] = []
     
     @IBOutlet var checkDoTaskStackButton: [UIButton]!
     @IBOutlet weak var nameTaskLabel: UILabel!
@@ -22,7 +23,7 @@ class TaskTableViewCell: UITableViewCell {
     
     @IBAction func setDoneTask(_ sender: UIButton) {
         guard let currentTask = task else { return }
-        var taskDate: String = date.getDateString(dayBefore: 0)
+        var taskDate = date.getDateString(dayBefore: 0) //переделать
         switch sender.tag {
         case 0:
             taskDate = date.getDateString(dayBefore: 2)
@@ -33,67 +34,67 @@ class TaskTableViewCell: UITableViewCell {
         default:
             break
         }
-        
-        StorageManager.shared.updateData(taskName: currentTask.title, taskDate: taskDate) { result in
-            print("resultqweqweqweqwe")
-            print(result)
+        print("completionDays до добавления", completionDays)
+        StorageManager.shared.updateStatus(currentTask, date: taskDate)
+        //слабую ссылку self
+        StorageManager.shared.fetchCompletionDays(currentTask) { result in
             switch result {
-            case .success(let task):
-                //разобраться с селф
-                self.task = task
-                checkDoTaskView(for: task)
+            case .success(let completionDays):
+                self.completionDays = completionDays
             case .failure(let error):
                 print(error.localizedDescription)
             }
         }
+        print("completionDays after добавления", completionDays)
+        checkDoneTaskView()
     }
     
     func configure(with task: Task) {
         nameTaskLabel.text = task.title
-        checkDoTaskView(for: task)
-        self.task = task
+        if let completions = task.completion.allObjects as? [CompletionDays] {
+            completionDays = completions
+        }
+        self.task = task // сделать weak
+        checkDoneTaskView()
     }
     
-    private func checkDoTaskView(for task: Task) {
-        let dateTask = task.completion.date
-        let isDone = task.completion.isDone
-        
+    private func checkDoneTaskView() {
         let curentDay = date.getDateString(dayBefore: 0)
         let yesterday = date.getDateString(dayBefore: 1)
         let dayBeforeYesterday = date.getDateString(dayBefore: 2)
         
-        for checkDoTaskButton in checkDoTaskStackButton {
-            checkDoTaskButton.layer.cornerRadius = 16
-//            let color = checkDoTaskButton.backgroundColor = UIColor.init(named: task.color)
-//            let clear = checkDoTaskButton.backgroundColor = .clear
-//
-            switch checkDoTaskButton.tag {
-            case 0:
-                if  dateTask == dayBeforeYesterday {
-                    if isDone {
-                        checkDoTaskButton.backgroundColor = UIColor.init(named: task.color)
-                    } else {
-                        checkDoTaskButton.backgroundColor = .clear
+        for completionDay in completionDays {
+            for checkDoTaskButton in checkDoTaskStackButton {
+                checkDoTaskButton.layer.cornerRadius = 16
+                
+                switch checkDoTaskButton.tag {
+                case 0:
+                    if  completionDay.date == dayBeforeYesterday {
+                        if completionDay.isDone {
+                            checkDoTaskButton.backgroundColor = UIColor.init(named: task.color)
+                        } else {
+                            checkDoTaskButton.backgroundColor = .clear
+                        }
                     }
-                }
-            case 1:
-                if dateTask == yesterday {
-                    if isDone {
-                        checkDoTaskButton.backgroundColor = UIColor.init(named: task.color)
-                    } else {
-                        checkDoTaskButton.backgroundColor = .clear
+                case 1:
+                    if completionDay.date == yesterday {
+                        if completionDay.isDone {
+                            checkDoTaskButton.backgroundColor = UIColor.init(named: task.color)
+                        } else {
+                            checkDoTaskButton.backgroundColor = .clear
+                        }
                     }
-                }
-            case 2:
-                if dateTask == curentDay {
-                    if isDone {
-                        checkDoTaskButton.backgroundColor = UIColor.init(named: task.color)
-                    } else {
-                        checkDoTaskButton.backgroundColor = .clear
+                case 2:
+                    if completionDay.date == curentDay {
+                        if completionDay.isDone {
+                            checkDoTaskButton.backgroundColor = UIColor.init(named: task.color)
+                        } else {
+                            checkDoTaskButton.backgroundColor = .clear
+                        }
                     }
+                default:
+                    break
                 }
-            default:
-                break
             }
         }
     }

@@ -29,7 +29,6 @@ class MainViewController: UIViewController {
         taskListTableView.backgroundColor = #colorLiteral(red: 0.9536015391, green: 0.9351417422, blue: 0.9531318545, alpha: 1)
         taskListTableView.layer.cornerRadius = 30
         fetchData()
-        print(taskList)
     }
     
     private func setCalendar() {
@@ -41,14 +40,19 @@ class MainViewController: UIViewController {
     }
     
     private func fetchData() {
-        StorageManager.shared.fetchData { [unowned self] result in
+        StorageManager.shared.fetchData { result in
             switch result {
             case .success(let tasks):
-                self.taskList = tasks
+                taskList = tasks
             case .failure(let error):
                 print(error.localizedDescription)
             }
         }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let newItemVC = segue.destination as? NewItemViewController else { return }
+        newItemVC.delegate = self
     }
 }
 

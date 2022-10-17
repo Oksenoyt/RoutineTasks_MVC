@@ -37,38 +37,13 @@ class NewItemViewController: UIViewController {
             //текст
             return }
         
-//        var name = "Уборка домааа1" //let
         let color = "#c49dcc"
-        let currentData = date.getDateString(dayBefore: 0)
+        let currentDate = date.getDateString(dayBefore: 0)
         
-        StorageManager.shared.create(taskName: name, color: color, startDate: currentData) { task in
-            print(task)
+        StorageManager.shared.createTask(taskName: name, color: color, date: currentDate) { task in
             delegate.addNewTask(task: task)
         }
         dismiss(animated: true)
-        
-        //        var name = "Уборка домааа1" //let
-        //        let color = "#c49dcc"
-        //        let currentData = date.getDateString(dayBefore: 0)
-        //        //сделать проверку на одинаковые названия
-        //
-        //        StorageManager.shared.create(taskName: name, color: color, startDate: date.getDateString(dayBefore: 0)) { task in
-        //            print(1)
-        //        }
-        //        name = "Уборка домааа1"
-        //        StorageManager.shared.create(taskName: name, color: color, startDate: date.getDateString(dayBefore: 1)) { task in
-        //            print(2)
-        //        }
-        //        name = "Уборка домааа1"
-        //
-        //        StorageManager.shared.create(taskName: name, color: color, startDate: date.getDateString(dayBefore: 2)) { task in
-        //            print(3)
-        //        }
-        //        name = "qweqwe3"
-        //
-        //        StorageManager.shared.create(taskName: name, color: color, startDate: date.getDateString(dayBefore: 3)) { task in
-        //            print(4)
-        //        }
     }
     
     private func setTextField() {

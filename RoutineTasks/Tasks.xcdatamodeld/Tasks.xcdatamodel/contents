@@ -8,6 +8,6 @@
     <entity name="Task" representedClassName="Task" syncable="YES">
         <attribute name="color" attributeType="String"/>
         <attribute name="title" attributeType="String"/>
-        <relationship name="completion" maxCount="1" deletionRule="Nullify" destinationEntity="CompletionDays" inverseName="task" inverseEntity="CompletionDays"/>
+        <relationship name="completion" toMany="YES" deletionRule="Cascade" destinationEntity="CompletionDays" inverseName="task" inverseEntity="CompletionDays"/>
     </entity>
 </model>
