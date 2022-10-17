@@ -69,14 +69,21 @@ extension MainViewController: UITableViewDataSource {
         let task = taskList[indexPath.row]
         cell.configure(with: task)
         
-        return cell 
+        return cell
     }
 }
 
 // MARK: - UITableViewDelegate
-//extension MainViewController: UITableViewDelegate {
-//
-//}
+extension MainViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        let task = taskList[indexPath.row]
+//        showAlert(task: task) {
+//            tableView.reloadRows(at: [indexPath], with: .automatic)
+//        }
+    }
+    
+}
 
 // MARK:  - MainViewController
 extension Date {
@@ -100,6 +107,9 @@ extension Date {
 extension MainViewController: NewItemViewControllerDelegate {
     func addNewTask(task: Task) {
         taskList.append(task)
-//        tableView.reloadData()
+        taskListTableView.insertRows(
+            at: [IndexPath(row: taskList.count - 1, section: 0)],
+            with: .automatic
+        )
     }
 }

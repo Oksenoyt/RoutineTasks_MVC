@@ -34,7 +34,6 @@ class TaskTableViewCell: UITableViewCell {
         default:
             break
         }
-//        print("completionDays до добавления", completionDays)
         StorageManager.shared.updateStatus(currentTask, date: taskDate)
         //слабую ссылку self
         StorageManager.shared.fetchCompletionDays(currentTask) { result in
@@ -45,7 +44,6 @@ class TaskTableViewCell: UITableViewCell {
                 print(error.localizedDescription)
             }
         }
-//        print("completionDays after добавления", completionDays)
         checkDoneTaskView()
     }
     
@@ -95,4 +93,3 @@ class TaskTableViewCell: UITableViewCell {
             }
     }
 }
-

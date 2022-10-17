@@ -44,6 +44,7 @@ class NewItemViewController: UIViewController {
             delegate.addNewTask(task: task)
         }
         dismiss(animated: true)
+        
     }
     
     private func setTextField() {
