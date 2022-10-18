@@ -31,6 +31,12 @@ class MainViewController: UIViewController {
         fetchData()
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let newItemVC = segue.destination as? NewItemViewController else { return }
+        newItemVC.delegate = self
+        newItemVC.tasks = taskList
+    }
+    
     private func setCalendar() {
         var dayNumber = -2
         for dayLabel in dayLabels {
@@ -48,11 +54,6 @@ class MainViewController: UIViewController {
                 print(error.localizedDescription)
             }
         }
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let newItemVC = segue.destination as? NewItemViewController else { return }
-        newItemVC.delegate = self
     }
 }
 
@@ -77,7 +78,7 @@ extension MainViewController: UITableViewDataSource {
 extension MainViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        let task = taskList[indexPath.row]
+//        let task = taskList[indexPath.row]
 //        showAlert(task: task) {
 //            tableView.reloadRows(at: [indexPath], with: .automatic)
 //        }

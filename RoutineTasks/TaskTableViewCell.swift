@@ -8,12 +8,13 @@
 import UIKit
 
 class TaskTableViewCell: UITableViewCell {
-    private let date = DateManager()
-    var task: Task!
-    var completionDays: [CompletionDays] = []
     
     @IBOutlet var StackDaysButton: [UIButton]!
     @IBOutlet weak var nameTaskLabel: UILabel!
+    
+    var task: Task!
+    var completionDays: [CompletionDays] = []
+    private let date = DateManager()
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
