@@ -213,10 +213,10 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pNi-Rb-Ex9">
-                                <rect key="frame" x="16" y="735.33333333333337" width="358" height="35.666666666666629"/>
+                                <rect key="frame" x="16" y="725.66666666666663" width="358" height="45.333333333333371"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" secondItem="pNi-Rb-Ex9" secondAttribute="height" multiplier="3:0.3" id="Nko-yT-IDm"/>
+                                    <constraint firstAttribute="width" secondItem="pNi-Rb-Ex9" secondAttribute="height" multiplier="3:0.38" id="Nko-yT-IDm"/>
                                 </constraints>
                                 <color key="tintColor" red="0.83069778449999998" green="0.75996881589999998" blue="0.88817537869999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Создать">
