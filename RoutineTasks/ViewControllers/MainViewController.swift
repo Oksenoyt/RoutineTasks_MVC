@@ -72,6 +72,23 @@ extension MainViewController: UITableViewDataSource {
         
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let task = taskList[indexPath.row]
+        
+        let deletAction = UIContextualAction(style: .destructive, title: "Delete") { _, _, _ in
+            StorageManager.shared.delete(task)
+            self.taskList.remove(at: indexPath.row) //self weak
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+        }
+        
+        let editAction = UIContextualAction(style: .normal, title: "Edit") { <#UIContextualAction#>, <#UIView#>, <#@escaping (Bool) -> Void#> in
+            <#code#>
+        }
+        
+        
+        return UISwipeActionsConfiguration(actions: [deletAction])
+    }
 }
 
 // MARK: - UITableViewDelegate
