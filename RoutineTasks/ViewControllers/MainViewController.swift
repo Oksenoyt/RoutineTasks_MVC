@@ -76,18 +76,20 @@ extension MainViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let task = taskList[indexPath.row]
         
-        let deletAction = UIContextualAction(style: .destructive, title: "Delete") { _, _, _ in
+        let deletAction = UIContextualAction(style: .normal, title: "Delete") { _, _, _ in
             StorageManager.shared.delete(task)
             self.taskList.remove(at: indexPath.row) //self weak
             tableView.deleteRows(at: [indexPath], with: .automatic)
         }
         
-        let editAction = UIContextualAction(style: .normal, title: "Edit") { <#UIContextualAction#>, <#UIView#>, <#@escaping (Bool) -> Void#> in
-            <#code#>
+        let editAction = UIContextualAction(style: .normal, title: "Edit") { _, _, _ in
+            print("sdfsdfsdf")
         }
         
+        deletAction.backgroundColor = #colorLiteral(red: 0.7979423404, green: 0.6081361771, blue: 0.8128324151, alpha: 1)
+        editAction.backgroundColor = #colorLiteral(red: 0.7490196078, green: 0.831372549, blue: 0.8352941176, alpha: 1)
         
-        return UISwipeActionsConfiguration(actions: [deletAction])
+        return UISwipeActionsConfiguration(actions: [deletAction, editAction])
     }
 }
 
