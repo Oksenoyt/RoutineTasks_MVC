@@ -453,8 +453,30 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nbM-3i-aae">
                                 <rect key="frame" x="0.0" y="188" width="390" height="656"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="почта" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4RS-ex-Qkc">
+                                        <rect key="frame" x="25" y="23" width="46" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ecX-UF-UnJ">
+                                        <rect key="frame" x="118" y="588" width="155" height="35"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="удалить аккаунт"/>
+                                    </button>
+                                </subviews>
                                 <color key="backgroundColor" red="0.94117647059999998" green="0.91764705879999997" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sx3-lU-GXR">
+                                <rect key="frame" x="16" y="132" width="124" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                <color key="textColor" red="0.92941176469999998" green="0.77647058820000003" blue="0.87843137250000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Lqs-ps-nxv"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -489,7 +511,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="29" translatesAutoresizingMaskIntoConstraints="NO" id="QBX-IX-tG2">
-                                <rect key="frame" x="16" y="330" width="358" height="309.33333333333326"/>
+                                <rect key="frame" x="16" y="330.00000000000006" width="358" height="518.33333333333348"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="vQ2-ej-nGa">
                                         <rect key="frame" x="45.333333333333343" y="0.0" width="267.66666666666663" height="54.333333333333336"/>
@@ -504,7 +526,7 @@
                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="keyPath" value="YES"/>
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
-                                                    <action selector="createButton:" destination="fl8-1N-bcm" eventType="touchUpInside" id="D6W-hZ-fHX"/>
+                                                    <action selector="createFormButton:" destination="fl8-1N-bcm" eventType="touchUpInside" id="gho-5J-BOG"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qf4-bq-I3h">
@@ -515,44 +537,59 @@
                                                     <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </buttonConfiguration>
                                                 <connections>
-                                                    <action selector="autorizeButtom:" destination="fl8-1N-bcm" eventType="touchUpInside" id="Xw0-Fw-RfD"/>
+                                                    <action selector="autorizeFormButtom:" destination="fl8-1N-bcm" eventType="touchUpInside" id="CBv-VS-Bax"/>
                                                 </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
-                                    <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="90B-VJ-zP0">
-                                        <rect key="frame" x="45.333333333333343" y="68.666666666666686" width="267.66666666666663" height="24"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="90B-VJ-zP0">
+                                        <rect key="frame" x="45.333333333333343" y="83.333333333333314" width="267.66666666666663" height="180"/>
                                         <subviews>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Login" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4em-Fu-N6f">
-                                                <rect key="frame" x="0.0" y="0.0" width="267.66666666666669" height="0.0"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                <textInputTraits key="textInputTraits"/>
-                                            </textField>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LHW-Bp-9lD">
-                                                <rect key="frame" x="0.0" y="12" width="267.66666666666669" height="0.0"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                <textInputTraits key="textInputTraits"/>
-                                            </textField>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3tA-xq-JjD">
-                                                <rect key="frame" x="0.0" y="24" width="267.66666666666669" height="0.0"/>
-                                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                <state key="normal" title="Log in">
-                                                    <color key="titleColor" name="#f0eaf0"/>
-                                                </state>
-                                            </button>
-                                        </subviews>
-                                    </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="O7k-xM-7IF">
-                                        <rect key="frame" x="45.333333333333343" y="83.333333333333314" width="267.66666666666663" height="226"/>
-                                        <subviews>
-                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="nicName" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4wZ-YR-30J">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4em-Fu-N6f">
                                                 <rect key="frame" x="0.0" y="0.0" width="267.66666666666669" height="34"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
-                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="mail" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OK0-al-Tei">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LHW-Bp-9lD">
+                                                <rect key="frame" x="0.0" y="46" width="267.66666666666669" height="34"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3tA-xq-JjD">
+                                                <rect key="frame" x="0.0" y="92" width="267.66666666666669" height="42"/>
+                                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <state key="normal" title="Войти">
+                                                    <color key="titleColor" name="#f0eaf0"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="loginButton:" destination="fl8-1N-bcm" eventType="touchUpInside" id="nOF-J0-W1g"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j0T-Pg-1cg">
+                                                <rect key="frame" x="0.0" y="146.00000000000006" width="267.66666666666669" height="34"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <state key="normal" title="Забыли пароль?">
+                                                    <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="forgotPasswordButton:" destination="fl8-1N-bcm" eventType="touchUpInside" id="VVW-0G-SMY"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="O7k-xM-7IF">
+                                        <rect key="frame" x="45.333333333333343" y="292.33333333333337" width="267.66666666666663" height="226"/>
+                                        <subviews>
+                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4wZ-YR-30J">
+                                                <rect key="frame" x="0.0" y="0.0" width="267.66666666666669" height="34"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OK0-al-Tei">
                                                 <rect key="frame" x="0.0" y="46" width="267.66666666666669" height="34"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                 <textInputTraits key="textInputTraits"/>
@@ -562,19 +599,22 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
-                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="F4a-oD-zvt">
-                                                <rect key="frame" x="0.0" y="138.00000000000006" width="267.66666666666669" height="34"/>
+                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="repeat password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="F4a-oD-zvt">
+                                                <rect key="frame" x="0.0" y="138" width="267.66666666666669" height="34"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BaF-eg-sSo">
-                                                <rect key="frame" x="0.0" y="184.00000000000006" width="267.66666666666669" height="42"/>
+                                                <rect key="frame" x="0.0" y="184" width="267.66666666666669" height="42"/>
                                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                <state key="normal" title="Create">
+                                                <state key="normal" title="Создать аккаунт">
                                                     <color key="titleColor" name="#f0eaf0"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="createButton:" destination="fl8-1N-bcm" eventType="touchUpInside" id="UIH-dT-arr"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -608,15 +648,15 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="autotizFormButton" destination="qf4-bq-I3h" id="CI1-tl-vSM"/>
-                        <outlet property="createButton" destination="BaF-eg-sSo" id="El5-yE-eTp"/>
-                        <outlet property="createFormButton" destination="uw3-kh-s58" id="NCM-gD-Ppw"/>
-                        <outlet property="createStackView" destination="O7k-xM-7IF" id="5CH-lb-sil"/>
+                        <outlet property="autotizFormButton" destination="qf4-bq-I3h" id="MBF-Dw-lqY"/>
+                        <outlet property="createButton" destination="BaF-eg-sSo" id="YQv-mt-xNL"/>
+                        <outlet property="createFormButton" destination="uw3-kh-s58" id="IS8-0O-Jap"/>
+                        <outlet property="createStackView" destination="O7k-xM-7IF" id="FmW-k1-4du"/>
                         <outlet property="iconImageView" destination="ayd-u7-J6e" id="cXB-s2-6AX"/>
-                        <outlet property="loginButton" destination="3tA-xq-JjD" id="M8p-q7-yuS"/>
-                        <outlet property="loginStackView" destination="90B-VJ-zP0" id="GXe-DE-v2q"/>
-                        <outlet property="loginTextField" destination="4em-Fu-N6f" id="68V-OT-YxN"/>
-                        <outlet property="passwordTextField" destination="LHW-Bp-9lD" id="DTp-4u-j6S"/>
+                        <outlet property="loginButton" destination="3tA-xq-JjD" id="TLq-si-dsw"/>
+                        <outlet property="loginStackView" destination="90B-VJ-zP0" id="MBJ-qu-L29"/>
+                        <outlet property="loginTextField" destination="4em-Fu-N6f" id="KCU-H3-OeX"/>
+                        <outlet property="passwordTextField" destination="LHW-Bp-9lD" id="DUX-9u-eqe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xkk-GT-Cuz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

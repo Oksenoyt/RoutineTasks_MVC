@@ -10,15 +10,15 @@ import UIKit
 class UserViewController: UIViewController {
 
     @IBOutlet weak var iconImageView: UIImageView!
-    @IBOutlet weak var createFormButton: UIButton!
-    @IBOutlet weak var autotizFormButton: UIButton!
     
+    @IBOutlet weak var autotizFormButton: UIButton!
     @IBOutlet weak var loginStackView: UIStackView!
     @IBOutlet weak var loginTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var loginButton: UIButton!
     
     
+    @IBOutlet weak var createFormButton: UIButton!
     @IBOutlet weak var createStackView: UIStackView!
     @IBOutlet weak var createButton: UIButton!
     
@@ -32,16 +32,26 @@ class UserViewController: UIViewController {
         avtorizFormActive()
     }
     
-    @IBAction func createButton(_ sender: Any) {
+    @IBAction func createFormButton(_ sender: Any) {
         createFormActive()
     }
     
-    @IBAction func autorizeButtom(_ sender: Any) {
+    @IBAction func autorizeFormButtom(_ sender: Any) {
         avtorizFormActive()
     }
     
     @IBAction func closeButton(_ sender: Any) {
         dismiss(animated: true)
+    }
+    
+    @IBAction func loginButton(_ sender: Any) {
+    }
+    
+    @IBAction func forgotPasswordButton(_ sender: Any) {
+    }
+    
+    @IBAction func createButton(_ sender: Any) {
+        
     }
     
     private func avtorizFormActive() {
