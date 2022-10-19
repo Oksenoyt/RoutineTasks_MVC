@@ -586,12 +586,11 @@
                                 </constraints>
                             </stackView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="profileLarg" translatesAutoresizingMaskIntoConstraints="NO" id="ayd-u7-J6e">
-                                <rect key="frame" x="89" y="108" width="212" height="112"/>
+                                <rect key="frame" x="82" y="83" width="212" height="112"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="close" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WZW-Kk-9mF">
-                                <rect key="frame" x="334" y="20" width="40" height="32"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="close" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WZW-Kk-9mF">
+                                <rect key="frame" x="334" y="63" width="40" height="32"/>
                                 <buttonConfiguration key="configuration" style="plain"/>
                                 <connections>
                                     <action selector="closeButton:" destination="fl8-1N-bcm" eventType="touchUpInside" id="E3i-AE-mjo"/>
@@ -602,8 +601,10 @@
                         <color key="backgroundColor" red="0.94117647059999998" green="0.91764705879999997" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="QBX-IX-tG2" firstAttribute="leading" secondItem="sGp-cd-ySk" secondAttribute="leading" constant="16" id="3ec-gF-qEv"/>
+                            <constraint firstItem="SkR-ic-enn" firstAttribute="trailing" secondItem="WZW-Kk-9mF" secondAttribute="trailing" constant="16" id="3yj-hV-hvg"/>
                             <constraint firstItem="vQ2-ej-nGa" firstAttribute="centerY" secondItem="SkR-ic-enn" secondAttribute="centerY" constant="-60" id="F0M-jD-BAG"/>
                             <constraint firstItem="SkR-ic-enn" firstAttribute="trailing" secondItem="QBX-IX-tG2" secondAttribute="trailing" constant="16" id="QIn-BK-CPE"/>
+                            <constraint firstItem="WZW-Kk-9mF" firstAttribute="top" secondItem="sGp-cd-ySk" secondAttribute="topMargin" constant="16" id="g0f-rY-Hd7"/>
                         </constraints>
                     </view>
                     <connections>
