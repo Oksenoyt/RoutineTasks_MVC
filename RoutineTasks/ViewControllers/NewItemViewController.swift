@@ -11,43 +11,52 @@ class NewItemViewController: UIViewController {
     
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet var itemColorStackButton: [UIButton]!
+    
+    @IBOutlet weak var scheduleStackButton: UIButton!
     @IBOutlet weak var createButton: UIButton!
+    
     
     let date = DateManager()
     var delegate:NewItemViewControllerDelegate!
     var tasks: [Task] = []
+    var editTask: Task?
     private var color = "#c49dcc"
+    private var selectedDays = [false, false, false, false, false, false, false]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.layer.cornerRadius = 30
         createButton.layer.cornerRadius = 15
-        setTextField()
-        for itemColorView in itemColorStackButton {
-            itemColorView.layer.cornerRadius = 15
+        
+        for itemColorButton in itemColorStackButton {
+            itemColorButton.layer.cornerRadius = 15
         }
-        setBorderButton(tagButton: 0)
+        
+        setSettingsNameTF()
+        setBorderColorButton(tagButton: 0)
     }
     
     @IBAction func getColor(_ sender: UIButton) {
+        setBorderColorButton(tagButton: sender.tag)
         switch sender.tag {
         case 0:
             color = "#c49dcc"
-            setBorderButton(tagButton: 0)
         case 1:
             color = "#bfd4d5"
-            setBorderButton(tagButton: 1)
         case 2:
             color = "#b096e4"
-            setBorderButton(tagButton: 2)
         case 3:
             color = "#a8eabc"
-            setBorderButton(tagButton: 3)
         default:
             color = "#edc6e0"
-            setBorderButton(tagButton: 4)
         }
     }
+    
+    @IBAction func scheduleButton(_ sender: UIButton) {
+        selectedDays[sender.tag].toggle()
+        print(selectedDays)
+    }
+    
     
     @IBAction func createButton(_ sender: UIButton) {
         let currentDate = date.getDateString(dayBefore: 0)
@@ -60,22 +69,28 @@ class NewItemViewController: UIViewController {
         StorageManager.shared.createTask(
             taskName: name,
             color: color,
-            date: currentDate
+            date: currentDate,
+            selectedDays: selectedDays
         ) { task in delegate.addNewTask(task: task) }
         
         dismiss(animated: true)
     }
     
-    private func setTextField() {
+    private func setSettingsNameTF() {
         nameTextField.layer.masksToBounds = true
         nameTextField.layer.cornerRadius = 30
         nameTextField.clearButtonMode = .whileEditing
         nameTextField.becomeFirstResponder()
         nameTextField.returnKeyType = UIReturnKeyType.done ///????
         //       nameTextField.delegate = self
+        
+        if let task = editTask {
+            nameTextField.placeholder = "Task"
+            nameTextField.text = task.title
+        }
     }
     
-    private func setBorderButton(tagButton: Int) {
+    private func setBorderColorButton(tagButton: Int) {
         for itemColorView in itemColorStackButton {
             itemColorView.layer.borderWidth = 0
         }

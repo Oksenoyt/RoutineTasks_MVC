@@ -29,29 +29,30 @@ class StorageManager {
         viewContext = persistentContainer.viewContext
     }
     
-    // MARK: - CRUD
-    func createTask(taskName: String, color: String, date: String, completion: (Task) -> Void) {
+    // MARK: - CRUD TASK
+    func createTask(taskName: String, color: String, date: String, selectedDays: [Bool], completion: (Task) -> Void) {
         let task = Task(context: viewContext)
         let completionDays = CompletionDays(context: viewContext)
+        let schedule = Schedule(context: viewContext)
         task.title = taskName
         task.color = color
         completionDays.task = task
         completionDays.date = date
         completionDays.isDone = false
+        schedule.task = task
+        
+        //переделать
+        schedule.monday = selectedDays[0]
+        schedule.tuesday = selectedDays[1]
+        schedule.sunday = selectedDays[2]
+        schedule.thursday = selectedDays[3]
+        schedule.friday = selectedDays[4]
+        schedule.saturday = selectedDays[5]
+        schedule.friday = selectedDays[6]
+        
         completion(task)
-        //уникальность названия
         saveContext()
     }
-//
-//    func createCompletionDay(task: Task, date: String, completion: (CompletionDays) -> Void) {
-//        let completionDays = CompletionDays(context: viewContext)
-//        completionDays.task = task
-//        completionDays.date = date
-//        completionDays.isDone = true
-//        completion(completionDays)
-//
-//        saveContext()
-//    }
     
     func fetchData(completion: (Result<[Task], Error>) -> Void) {
         let fetchRequest = Task.fetchRequest()
@@ -75,11 +76,11 @@ class StorageManager {
         }
     }
     
-    func updateTask(_ task: Task, newName: String, newColor: String) {
-        task.title = newName
-        task.color = newColor
-        saveContext()
-    }
+    //    func updateTask(_ task: Task, newName: String, newColor: String) {
+    //        task.title = newName
+    //        task.color = newColor
+    //        saveContext()
+    //    }
     
     func updateStatus(_ task: Task, date: String) {
         let fetchRequest = CompletionDays.fetchRequest()
@@ -102,6 +103,53 @@ class StorageManager {
     
     func delete(_ task: Task) {
         viewContext.delete(task)
+        saveContext()
+    }
+    
+    // MARK: - CRUD USER
+    func createUser(name: String, email: String, password: String, completion: (User) -> Void) {
+        let user = User(context: viewContext)
+        user.name = name
+        user.email = email
+        user.password = password
+        
+        completion(user)
+        saveContext()
+    }
+    
+    func fetchUser(email: String, completion: (Result<User, Error>) -> Void) {
+        let fetchRequest = User.fetchRequest()
+        fetchRequest.predicate = NSPredicate(format: "email = %@", email)
+        do {
+            let users = try viewContext.fetch(fetchRequest)
+            guard let user = users.first else { return }
+            completion(.success(user))
+        } catch let error {
+            completion(.failure(error))
+        }
+        saveContext()
+    }
+    
+//    func updateUser(_ task: Task, date: String) {
+//        let fetchRequest = CompletionDays.fetchRequest()
+//        fetchRequest.predicate = NSPredicate(format: "(task.title = %@) AND (date = %@)", task.title, date)
+//        do {
+//            let completionDays = try viewContext.fetch(fetchRequest)
+//            if let completionDay = completionDays.first {
+//                completionDay.isDone.toggle()
+//            } else {
+//                let newCompletionDay = CompletionDays(context: viewContext)
+//                newCompletionDay.task = task
+//                newCompletionDay.date = date
+//                newCompletionDay.isDone = true
+//            }
+//        } catch let error {
+//            print("Error fetch completionDays", error)
+//        }
+//        saveContext()
+//    }
+    func deleteUser(_ user: User) {
+        viewContext.delete(user)
         saveContext()
     }
     

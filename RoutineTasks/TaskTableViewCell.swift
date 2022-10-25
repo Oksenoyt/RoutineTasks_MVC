@@ -57,6 +57,10 @@ class TaskTableViewCell: UITableViewCell {
         checkDoneTaskView()
     }
     
+    private func checkDayActive() {
+       
+    }
+    
     private func checkDoneTaskView() {
         let curentDay = date.getDateString(dayBefore: 0)
         let yesterday = date.getDateString(dayBefore: 1)

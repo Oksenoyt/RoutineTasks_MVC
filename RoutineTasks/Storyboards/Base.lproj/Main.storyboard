@@ -112,36 +112,57 @@
                                                                 <rect key="frame" x="0.0" y="0.0" width="46.333333333333336" height="34.333333333333336"/>
                                                                 <state key="normal" title="Button"/>
                                                                 <buttonConfiguration key="configuration" style="plain" title="Пн"/>
+                                                                <connections>
+                                                                    <action selector="scheduleButton:" destination="Are-lL-MFa" eventType="touchUpInside" id="e28-EM-y0N"/>
+                                                                </connections>
                                                             </button>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7C9-tM-qQM">
+                                                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7C9-tM-qQM">
                                                                 <rect key="frame" x="46.333333333333329" y="0.0" width="46.333333333333329" height="34.333333333333336"/>
                                                                 <state key="normal" title="Button"/>
                                                                 <buttonConfiguration key="configuration" style="plain" title="Вт"/>
+                                                                <connections>
+                                                                    <action selector="scheduleButton:" destination="Are-lL-MFa" eventType="touchUpInside" id="RDa-p1-SDD"/>
+                                                                </connections>
                                                             </button>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oDN-7b-VnQ">
+                                                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oDN-7b-VnQ">
                                                                 <rect key="frame" x="92.666666666666671" y="0.0" width="46.333333333333329" height="34.333333333333336"/>
                                                                 <state key="normal" title="Button"/>
                                                                 <buttonConfiguration key="configuration" style="plain" title="Ср"/>
+                                                                <connections>
+                                                                    <action selector="scheduleButton:" destination="Are-lL-MFa" eventType="touchUpInside" id="Mt1-MP-bCL"/>
+                                                                </connections>
                                                             </button>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VYh-UH-lbn">
+                                                            <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VYh-UH-lbn">
                                                                 <rect key="frame" x="139" y="0.0" width="46.333333333333343" height="34.333333333333336"/>
                                                                 <state key="normal" title="Button"/>
                                                                 <buttonConfiguration key="configuration" style="plain" title="Чт"/>
+                                                                <connections>
+                                                                    <action selector="scheduleButton:" destination="Are-lL-MFa" eventType="touchUpInside" id="Nej-t4-cz1"/>
+                                                                </connections>
                                                             </button>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ado-Y1-aDm">
+                                                            <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ado-Y1-aDm">
                                                                 <rect key="frame" x="185.33333333333334" y="0.0" width="46.333333333333343" height="34.333333333333336"/>
                                                                 <state key="normal" title="Button"/>
                                                                 <buttonConfiguration key="configuration" style="plain" title="Пт"/>
+                                                                <connections>
+                                                                    <action selector="scheduleButton:" destination="Are-lL-MFa" eventType="touchUpInside" id="yAe-Lu-Ixt"/>
+                                                                </connections>
                                                             </button>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3hY-50-tUq">
+                                                            <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3hY-50-tUq">
                                                                 <rect key="frame" x="231.66666666666666" y="0.0" width="46.333333333333343" height="34.333333333333336"/>
                                                                 <state key="normal" title="Button"/>
                                                                 <buttonConfiguration key="configuration" style="plain" title="Сб"/>
+                                                                <connections>
+                                                                    <action selector="scheduleButton:" destination="Are-lL-MFa" eventType="touchUpInside" id="oCx-Z0-pdW"/>
+                                                                </connections>
                                                             </button>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H2O-V4-Sqz">
+                                                            <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H2O-V4-Sqz">
                                                                 <rect key="frame" x="278" y="0.0" width="46.333333333333314" height="34.333333333333336"/>
                                                                 <state key="normal" title="Button"/>
                                                                 <buttonConfiguration key="configuration" style="plain" title="Вс"/>
+                                                                <connections>
+                                                                    <action selector="scheduleButton:" destination="Are-lL-MFa" eventType="touchUpInside" id="E9R-1D-tQJ"/>
+                                                                </connections>
                                                             </button>
                                                         </subviews>
                                                     </stackView>
@@ -242,6 +263,7 @@
                     <connections>
                         <outlet property="createButton" destination="pNi-Rb-Ex9" id="n5G-hJ-n4z"/>
                         <outlet property="nameTextField" destination="0zW-Lh-VxA" id="csf-rt-1nK"/>
+                        <outlet property="scheduleStackButton" destination="7C9-tM-qQM" id="waK-6N-mPb"/>
                         <outletCollection property="itemColorStackButton" destination="IXc-yU-kam" collectionClass="NSMutableArray" id="1Ee-NU-I5F"/>
                         <outletCollection property="itemColorStackButton" destination="CaB-qH-EMj" collectionClass="NSMutableArray" id="N0e-0z-3hn"/>
                         <outletCollection property="itemColorStackButton" destination="KgJ-Rw-Wkn" collectionClass="NSMutableArray" id="Wbk-fi-IyP"/>
@@ -454,24 +476,47 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nbM-3i-aae">
                                 <rect key="frame" x="0.0" y="188" width="390" height="656"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="почта" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4RS-ex-Qkc">
-                                        <rect key="frame" x="25" y="23" width="46" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ваша почта:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4RS-ex-Qkc">
+                                        <rect key="frame" x="13" y="17" width="96" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ecX-UF-UnJ">
-                                        <rect key="frame" x="118" y="588" width="155" height="35"/>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ecX-UF-UnJ">
+                                        <rect key="frame" x="118" y="588" width="156" height="35"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="удалить аккаунт"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Удалить аккаунт"/>
+                                        <connections>
+                                            <action selector="deleteAccount:" destination="Kqc-Jk-AkO" eventType="touchUpInside" id="OSk-ZO-YGs"/>
+                                        </connections>
                                     </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="благодарность:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cl2-mH-cK2">
+                                        <rect key="frame" x="13" y="98" width="124" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VbH-0p-eTf">
+                                        <rect key="frame" x="13" y="140" width="116" height="35"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="поделиться"/>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="обратная связь:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FsN-AS-JkT">
+                                        <rect key="frame" x="13" y="54" width="128" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" red="0.94117647059999998" green="0.91764705879999997" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sx3-lU-GXR">
-                                <rect key="frame" x="16" y="132" width="124" height="34"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Вы не авторизованы" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sx3-lU-GXR">
+                                <rect key="frame" x="16" y="132" width="259" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                 <color key="textColor" red="0.92941176469999998" green="0.77647058820000003" blue="0.87843137250000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -488,19 +533,22 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Настройки" id="D2q-Cb-KWw">
-                        <barButtonItem key="rightBarButtonItem" image="profile" id="v6l-R8-xeg">
+                        <barButtonItem key="rightBarButtonItem" title="Войти" id="v6l-R8-xeg">
                             <connections>
                                 <segue destination="fl8-1N-bcm" kind="presentation" id="Fhx-zG-uxG"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="autorizButton" destination="v6l-R8-xeg" id="2wi-Qi-heI"/>
                         <outlet property="backgroundView" destination="nbM-3i-aae" id="bwQ-rG-uGi"/>
+                        <outlet property="deleteAccountButton" destination="ecX-UF-UnJ" id="pjA-tn-vya"/>
+                        <outlet property="userNameLabel" destination="sx3-lU-GXR" id="UwI-I7-8YK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="S1s-XD-M7N" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1397.663551401869" y="83.585313174946009"/>
+            <point key="canvasLocation" x="1396.9230769230769" y="83.175355450236964"/>
         </scene>
         <!--User View Controller-->
         <scene sceneID="vnp-ct-59M">
@@ -652,11 +700,15 @@
                         <outlet property="createButton" destination="BaF-eg-sSo" id="YQv-mt-xNL"/>
                         <outlet property="createFormButton" destination="uw3-kh-s58" id="IS8-0O-Jap"/>
                         <outlet property="createStackView" destination="O7k-xM-7IF" id="FmW-k1-4du"/>
+                        <outlet property="emailTextField" destination="OK0-al-Tei" id="UMu-lB-hZs"/>
                         <outlet property="iconImageView" destination="ayd-u7-J6e" id="cXB-s2-6AX"/>
                         <outlet property="loginButton" destination="3tA-xq-JjD" id="TLq-si-dsw"/>
                         <outlet property="loginStackView" destination="90B-VJ-zP0" id="MBJ-qu-L29"/>
                         <outlet property="loginTextField" destination="4em-Fu-N6f" id="KCU-H3-OeX"/>
-                        <outlet property="passwordTextField" destination="LHW-Bp-9lD" id="DUX-9u-eqe"/>
+                        <outlet property="passTextField" destination="u8Y-eh-tKJ" id="6jl-yW-bTF"/>
+                        <outlet property="passwordTextField" destination="LHW-Bp-9lD" id="f9d-M5-8hq"/>
+                        <outlet property="repeatPassTextField" destination="F4a-oD-zvt" id="GFD-Yp-kop"/>
+                        <outlet property="userNameTextField" destination="4wZ-YR-30J" id="ay7-1J-SfJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xkk-GT-Cuz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -691,7 +743,6 @@
     </scenes>
     <resources>
         <image name="imgSettings" width="54" height="57"/>
-        <image name="profile" width="50" height="50"/>
         <image name="profileLarg" width="512" height="512"/>
         <namedColor name="#f0eaf0">
             <color red="0.94099998474121094" green="0.9179999828338623" blue="0.94099998474121094" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

@@ -20,7 +20,14 @@ class UserViewController: UIViewController {
     
     @IBOutlet weak var createFormButton: UIButton!
     @IBOutlet weak var createStackView: UIStackView!
+    
+    @IBOutlet weak var userNameTextField: UITextField!
+    @IBOutlet weak var emailTextField: UITextField!
+    @IBOutlet weak var passTextField: UITextField!
+    @IBOutlet weak var repeatPassTextField: UITextField!
     @IBOutlet weak var createButton: UIButton!
+    
+    var delegate: UserViewControllerDelegate!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,25 +52,58 @@ class UserViewController: UIViewController {
     }
     
     @IBAction func loginButton(_ sender: Any) {
+        guard let login = loginTextField.text, !login.isEmpty else { return }
+        guard let pass = passwordTextField.text, !pass.isEmpty else { return }
+        StorageManager.shared.fetchUser(email: login) { result in
+            switch result {
+            case .success(let user):
+                if user.password == pass {
+                    delegate.addUser(user)
+                    dismiss(animated: true)
+                } else {
+                    print("не верный логин или пароль")
+                    //переделать
+                }
+            case .failure(let error):
+                print(error)
+            }
+        }
+        
     }
     
     @IBAction func forgotPasswordButton(_ sender: Any) {
+        showAlert(with: "Восстановление пароля")
+//        guard let email =
+//        StorageManager.shared.fetchUser(email: email) { result in
+//            switch result {
+//            case .success( let user):
+//
+//            case .failure( let error):
+//                print(error)
+//            }
+//        }
     }
     
     @IBAction func createButton(_ sender: Any) {
+        //добавить логику и проверки
+        guard let name = userNameTextField.text, !name.isEmpty else { return }
+        guard let email = emailTextField.text, !email.isEmpty else { return }
+        guard let pass = passTextField.text, !pass.isEmpty else { return }
+        guard let repeatPass = repeatPassTextField.text, !repeatPass.isEmpty, repeatPass==pass else { return }
         
+        StorageManager.shared.createUser(name: name, email: email, password: pass) { newUser in
+            delegate.addUser(newUser)
+            dismiss(animated: true)
+            }
     }
     
     private func avtorizFormActive() {
         createStackView.isHidden = true
         loginStackView.isHidden = false
-        
         autotizFormButton.backgroundColor = #colorLiteral(red: 0.9294117647, green: 0.7764705882, blue: 0.8784313725, alpha: 1)
-        
         createFormButton.backgroundColor = .clear
         createFormButton.layer.borderColor = #colorLiteral(red: 0.6588235294, green: 0.9176470588, blue: 0.737254902, alpha: 1)
         createFormButton.layer.borderWidth = 5
-        
         loginButton.layer.borderColor = #colorLiteral(red: 0.9294117647, green: 0.7764705882, blue: 0.8784313725, alpha: 1)
         loginButton.layer.borderWidth = 5
     }
@@ -71,14 +111,25 @@ class UserViewController: UIViewController {
     private func createFormActive() {
         loginStackView.isHidden = true
         createStackView.isHidden = false
-        
         createFormButton.backgroundColor = #colorLiteral(red: 0.6588235294, green: 0.9176470588, blue: 0.737254902, alpha: 1)
-        
         autotizFormButton.backgroundColor = .clear
         autotizFormButton.layer.borderColor = #colorLiteral(red: 0.9294117647, green: 0.7764705882, blue: 0.8784313725, alpha: 1)
         autotizFormButton.layer.borderWidth = 5
-        
         createButton.layer.borderColor = #colorLiteral(red: 0.6588235294, green: 0.9176470588, blue: 0.737254902, alpha: 1)
         createButton.layer.borderWidth = 5
+    }
+}
+
+extension UserViewController {
+    private func showAlert(with title: String) {
+        let alert = UIAlertController(title: title, message: nil, preferredStyle: .actionSheet)
+        alert.addTextField { textField in
+            textField.placeholder = "email"
+        }
+        
+        alert.addAction(UIAlertAction(title: "Отмена", style: .cancel))
+        alert.addAction(UIAlertAction(title: "OK", style: .default))
+        
+        present(alert, animated: true)
     }
 }
