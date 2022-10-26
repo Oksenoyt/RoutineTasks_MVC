@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		421B0D252907D87E00A4F31E /* AlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 421B0D242907D87E00A4F31E /* AlertController.swift */; };
+		421B0D4E29082B7E00A4F31E /* User+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 421B0D4829082B7E00A4F31E /* User+CoreDataClass.swift */; };
+		421B0D4F29082B7E00A4F31E /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 421B0D4929082B7E00A4F31E /* User+CoreDataProperties.swift */; };
+		421B0D5029082B7E00A4F31E /* Schedule+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 421B0D4A29082B7E00A4F31E /* Schedule+CoreDataClass.swift */; };
+		421B0D5129082B7E00A4F31E /* Schedule+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 421B0D4B29082B7E00A4F31E /* Schedule+CoreDataProperties.swift */; };
 		422672F02872DC4A00511C2E /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 422672EF2872DC4A00511C2E /* SettingsViewController.swift */; };
 		422672F42872E6FD00511C2E /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 422672F32872E6FD00511C2E /* UserViewController.swift */; };
 		4231D6B52869A33D000419BA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4231D6B42869A33D000419BA /* AppDelegate.swift */; };
@@ -30,6 +34,10 @@
 
 /* Begin PBXFileReference section */
 		421B0D242907D87E00A4F31E /* AlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertController.swift; sourceTree = "<group>"; };
+		421B0D4829082B7E00A4F31E /* User+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataClass.swift"; sourceTree = "<group>"; };
+		421B0D4929082B7E00A4F31E /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		421B0D4A29082B7E00A4F31E /* Schedule+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Schedule+CoreDataClass.swift"; sourceTree = "<group>"; };
+		421B0D4B29082B7E00A4F31E /* Schedule+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Schedule+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		422672EF2872DC4A00511C2E /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		422672F32872E6FD00511C2E /* UserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
 		4231D6B12869A33D000419BA /* RoutineTasks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RoutineTasks.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -154,6 +162,10 @@
 		778098F62883C6AD00BB5CAB /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				421B0D4829082B7E00A4F31E /* User+CoreDataClass.swift */,
+				421B0D4929082B7E00A4F31E /* User+CoreDataProperties.swift */,
+				421B0D4A29082B7E00A4F31E /* Schedule+CoreDataClass.swift */,
+				421B0D4B29082B7E00A4F31E /* Schedule+CoreDataProperties.swift */,
 				42C3029728F84065000596F5 /* Task+CoreDataClass.swift */,
 				42C3029828F84065000596F5 /* Task+CoreDataProperties.swift */,
 				42C3029928F84065000596F5 /* CompletionDays+CoreDataClass.swift */,
@@ -238,14 +250,18 @@
 				42C3029C28F84065000596F5 /* Task+CoreDataProperties.swift in Sources */,
 				4231D6B92869A33D000419BA /* MainViewController.swift in Sources */,
 				4231D6B52869A33D000419BA /* AppDelegate.swift in Sources */,
+				421B0D5029082B7E00A4F31E /* Schedule+CoreDataClass.swift in Sources */,
 				42FE9E4E28E5F95C00A6F9D7 /* StorageManager.swift in Sources */,
+				421B0D5129082B7E00A4F31E /* Schedule+CoreDataProperties.swift in Sources */,
 				42C3029E28F84065000596F5 /* CompletionDays+CoreDataProperties.swift in Sources */,
 				426D579A288D5260003DC0BF /* TaskTableViewCell.swift in Sources */,
 				423BA0AF287AE4B000D00A71 /* NewItemViewController.swift in Sources */,
 				42CEB7C528E9A0520081D037 /* DateManager.swift in Sources */,
 				42C3029B28F84065000596F5 /* Task+CoreDataClass.swift in Sources */,
+				421B0D4F29082B7E00A4F31E /* User+CoreDataProperties.swift in Sources */,
 				421B0D252907D87E00A4F31E /* AlertController.swift in Sources */,
 				422672F42872E6FD00511C2E /* UserViewController.swift in Sources */,
+				421B0D4E29082B7E00A4F31E /* User+CoreDataClass.swift in Sources */,
 				42FE9E5128E5F9AF00A6F9D7 /* Tasks.xcdatamodeld in Sources */,
 				422672F02872DC4A00511C2E /* SettingsViewController.swift in Sources */,
 				4231D6B72869A33D000419BA /* SceneDelegate.swift in Sources */,

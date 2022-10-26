@@ -23,7 +23,6 @@ class TaskTableViewCell: UITableViewCell {
     }
     
     @IBAction func setDoneTask(_ sender: UIButton) {
-        guard let currentTask = task else { return }
         var taskDate = date.getDateString(dayBefore: 0) //переделать
         switch sender.tag {
         case 0:
@@ -35,9 +34,9 @@ class TaskTableViewCell: UITableViewCell {
         default:
             break
         }
-        StorageManager.shared.updateStatus(currentTask, date: taskDate)
+        StorageManager.shared.updateStatus(task, date: taskDate)
         //слабую ссылку self
-        StorageManager.shared.fetchCompletionDays(currentTask) { result in
+        StorageManager.shared.fetchCompletionDays(task) { result in
             switch result {
             case .success(let completionDays):
                 self.completionDays = completionDays
@@ -58,7 +57,7 @@ class TaskTableViewCell: UITableViewCell {
     }
     
     private func checkDayActive() {
-       
+        
     }
     
     private func checkDoneTaskView() {
@@ -73,15 +72,15 @@ class TaskTableViewCell: UITableViewCell {
                 switch dayButton.tag {
                 case 0:
                     if  completionDay.date == dayBeforeYesterday {
-                        setColor(completionDay: completionDay, for: dayButton)
+                        setColorDone(completionDay: completionDay, for: dayButton)
                     }
                 case 1:
                     if completionDay.date == yesterday {
-                        setColor(completionDay: completionDay, for: dayButton)
+                        setColorDone(completionDay: completionDay, for: dayButton)
                     }
                 case 2:
                     if completionDay.date == curentDay {
-                        setColor(completionDay: completionDay, for: dayButton)
+                        setColorDone(completionDay: completionDay, for: dayButton)
                     }
                 default:
                     break
@@ -90,7 +89,7 @@ class TaskTableViewCell: UITableViewCell {
         }
     }
     
-    private func setColor(completionDay: CompletionDays, for checkDoTaskButton: UIButton) {
+    private func setColorDone(completionDay: CompletionDays, for checkDoTaskButton: UIButton) {
             if completionDay.isDone {
                 checkDoTaskButton.backgroundColor = UIColor.init(named: task.color)
             } else {

@@ -34,21 +34,25 @@ class StorageManager {
         let task = Task(context: viewContext)
         let completionDays = CompletionDays(context: viewContext)
         let schedule = Schedule(context: viewContext)
+        let user = User(context: viewContext)
         task.title = taskName
         task.color = color
         completionDays.task = task
         completionDays.date = date
         completionDays.isDone = false
+//        print(schedule.task)
         schedule.task = task
+    
+        print(" print(schedule.task)", schedule.task)
         
         //переделать
         schedule.monday = selectedDays[0]
         schedule.tuesday = selectedDays[1]
-        schedule.sunday = selectedDays[2]
+        schedule.wednesday = selectedDays[2]
         schedule.thursday = selectedDays[3]
         schedule.friday = selectedDays[4]
         schedule.saturday = selectedDays[5]
-        schedule.friday = selectedDays[6]
+        schedule.sunday = selectedDays[6]
         
         completion(task)
         saveContext()

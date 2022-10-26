@@ -20,7 +20,26 @@ extension Task {
     @NSManaged public var title: String
     @NSManaged public var completion: NSSet
 
+    //new
+    @NSManaged public var schedule: Schedule
+    @NSManaged public var user: User?
+
 }
+
+//extension Task {
+//
+//    @nonobjc public class func fetchRequest() -> NSFetchRequest<Task> {
+//        return NSFetchRequest<Task>(entityName: "Task")
+//    }
+//
+//    @NSManaged public var color: String?
+//    @NSManaged public var title: String?
+//    @NSManaged public var completion: NSSet?
+//    @NSManaged public var schedule: Schedule?
+//    @NSManaged public var user: User?
+//
+//}
+
 
 // MARK: Generated accessors for completion
 extension Task {
