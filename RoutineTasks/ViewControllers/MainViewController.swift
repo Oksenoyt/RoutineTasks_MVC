@@ -20,7 +20,8 @@ class MainViewController: UIViewController {
     @IBOutlet weak var taskListTableView: UITableView!
     @IBOutlet var dayLabels: [UILabel]!
     
-    let date = Date()
+    private let date = DateManager()
+    
     var taskList:[Task] = []
     
     override func viewDidLoad() {
@@ -40,7 +41,7 @@ class MainViewController: UIViewController {
     private func setCalendar() {
         var dayNumber = -2
         for dayLabel in dayLabels {
-            dayLabel.text = date.dayBefore(value: dayNumber).toRusString
+            dayLabel.text = date.getDateString(dayBefore: -dayNumber, format: .d_EE)
             dayNumber += 1
         }
     }
@@ -103,24 +104,6 @@ extension MainViewController: UITableViewDelegate {
 //        }
     }
     
-}
-
-// MARK:  - MainViewController
-extension Date {
-    var toRusString: String {
-        let dateFormatter = DateFormatter()
-        dateFormatter.locale = Locale(identifier: "ru_Ru")
-        dateFormatter.setLocalizedDateFormatFromTemplate("d")
-        let dayNumber = dateFormatter.string(from: self)
-        dateFormatter.setLocalizedDateFormatFromTemplate("EE")
-        let dayWeek = dateFormatter.string(from: self)
-        
-        return "\(dayNumber)\n\(dayWeek)"
-    }
-    
-    func dayBefore(value: Int) -> Date {
-        Calendar.current.date(byAdding: .day, value: value, to: Date())!
-    }
 }
 
 // MARK: - NewItemViewControllerDelegate

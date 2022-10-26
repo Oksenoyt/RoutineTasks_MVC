@@ -12,19 +12,40 @@ class DateManager {
     private let currentDate = Date()
     private let calendar = Calendar.current
     
-//    func getDate(dayBefore: Int) -> Date {
-//        let components = calendar.dateComponents( [.day, .month, .year], from: currentDate)
-//        let today = calendar.date(from: components) ?? currentDate
-//        let date = today.dayBefore(value: dayBefore)
-//        return date
-//    }
+    enum formatDate {
+        case yyyyMMdd
+        case d_EE
+        case EE
+        
+    }
     
-    func getDateString(dayBefore: Int) -> String {
+    func getDateString(dayBefore: Int, format: formatDate ) -> String {
         let date = currentDate.dayBefore(value: -dayBefore)
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd"
-        let dateString = dateFormatter.string(from: date)
+        dateFormatter.locale = Locale(identifier: "ru_Ru")
+        var dataFormatted = ""
+        switch format {
+        case .yyyyMMdd:
+            dateFormatter.dateFormat = "yyyy-MM-dd"
+            dataFormatted = dateFormatter.string(from: date)
+        case .d_EE:
+            dateFormatter.setLocalizedDateFormatFromTemplate("d")
+            let dayNumber = dateFormatter.string(from: date)
+            dateFormatter.setLocalizedDateFormatFromTemplate("EE")
+            let dayWeek = dateFormatter.string(from: date)
+            dataFormatted = "\(dayNumber)\n\(dayWeek)"
+        case .EE:
+            dateFormatter.setLocalizedDateFormatFromTemplate("EE")
+            dataFormatted = dateFormatter.string(from: date)
+        }
         
-        return dateString
+        return dataFormatted
+    }
+}
+
+// MARK:  - DateManager
+extension Date {
+    func dayBefore(value: Int) -> Date {
+        Calendar.current.date(byAdding: .day, value: value, to: Date())!
     }
 }

@@ -23,14 +23,14 @@ class TaskTableViewCell: UITableViewCell {
     }
     
     @IBAction func setDoneTask(_ sender: UIButton) {
-        var taskDate = date.getDateString(dayBefore: 0) //переделать
+        var taskDate = date.getDateString(dayBefore: 0, format: .yyyyMMdd) //переделать
         switch sender.tag {
         case 0:
-            taskDate = date.getDateString(dayBefore: 2)
+            taskDate = date.getDateString(dayBefore: 2, format: .yyyyMMdd)
         case 1:
-            taskDate = date.getDateString(dayBefore: 1)
+            taskDate = date.getDateString(dayBefore: 1, format: .yyyyMMdd)
         case 2:
-            taskDate = date.getDateString(dayBefore: 0)
+            taskDate = date.getDateString(dayBefore: 0, format: .yyyyMMdd)
         default:
             break
         }
@@ -61,9 +61,9 @@ class TaskTableViewCell: UITableViewCell {
     }
     
     private func checkDoneTaskView() {
-        let curentDay = date.getDateString(dayBefore: 0)
-        let yesterday = date.getDateString(dayBefore: 1)
-        let dayBeforeYesterday = date.getDateString(dayBefore: 2)
+        let curentDay = date.getDateString(dayBefore: 0, format: .yyyyMMdd)
+        let yesterday = date.getDateString(dayBefore: 1, format: .yyyyMMdd)
+        let dayBeforeYesterday = date.getDateString(dayBefore: 2, format: .yyyyMMdd)
         
         for completionDay in completionDays {
             for dayButton in StackDaysButton {

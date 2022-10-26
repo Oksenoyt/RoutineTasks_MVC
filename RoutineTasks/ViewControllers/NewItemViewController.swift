@@ -59,7 +59,7 @@ class NewItemViewController: UIViewController {
     
     
     @IBAction func createButton(_ sender: UIButton) {
-        let currentDate = date.getDateString(dayBefore: 0)
+        let currentDate = date.getDateString(dayBefore: 0, format: .yyyyMMdd)
         guard let name = nameTextField.text, !name.isEmpty else {
             showAlert(with: "Заполните название задачи")
             return
