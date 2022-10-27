@@ -18,6 +18,7 @@ extension CompletionDays {
 
     @NSManaged public var date: String
     @NSManaged public var isDone: Bool
+    @NSManaged public var dayWeek: String
     @NSManaged public var task: Task
 
 }
@@ -25,3 +26,4 @@ extension CompletionDays {
 extension CompletionDays : Identifiable {
 
 }
+

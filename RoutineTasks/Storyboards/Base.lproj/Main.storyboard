@@ -110,6 +110,7 @@
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Awr-mb-Clv">
                                                                 <rect key="frame" x="0.0" y="0.0" width="46.333333333333336" height="34.333333333333336"/>
+                                                                <color key="tintColor" systemColor="systemBlueColor"/>
                                                                 <state key="normal" title="Button"/>
                                                                 <buttonConfiguration key="configuration" style="plain" title="Пн"/>
                                                                 <connections>
@@ -263,12 +264,18 @@
                     <connections>
                         <outlet property="createButton" destination="pNi-Rb-Ex9" id="n5G-hJ-n4z"/>
                         <outlet property="nameTextField" destination="0zW-Lh-VxA" id="csf-rt-1nK"/>
-                        <outlet property="scheduleStackButton" destination="7C9-tM-qQM" id="waK-6N-mPb"/>
                         <outletCollection property="itemColorStackButton" destination="IXc-yU-kam" collectionClass="NSMutableArray" id="1Ee-NU-I5F"/>
                         <outletCollection property="itemColorStackButton" destination="CaB-qH-EMj" collectionClass="NSMutableArray" id="N0e-0z-3hn"/>
                         <outletCollection property="itemColorStackButton" destination="KgJ-Rw-Wkn" collectionClass="NSMutableArray" id="Wbk-fi-IyP"/>
                         <outletCollection property="itemColorStackButton" destination="w3Y-Zv-W8I" collectionClass="NSMutableArray" id="KBT-g3-YeX"/>
                         <outletCollection property="itemColorStackButton" destination="WKn-x2-YN8" collectionClass="NSMutableArray" id="fxg-Zr-SDu"/>
+                        <outletCollection property="scheduleStackButton" destination="Awr-mb-Clv" collectionClass="NSMutableArray" id="an1-7f-B7M"/>
+                        <outletCollection property="scheduleStackButton" destination="7C9-tM-qQM" collectionClass="NSMutableArray" id="bNB-bg-oyC"/>
+                        <outletCollection property="scheduleStackButton" destination="oDN-7b-VnQ" collectionClass="NSMutableArray" id="THb-m1-RNW"/>
+                        <outletCollection property="scheduleStackButton" destination="VYh-UH-lbn" collectionClass="NSMutableArray" id="JIf-Ho-02B"/>
+                        <outletCollection property="scheduleStackButton" destination="ado-Y1-aDm" collectionClass="NSMutableArray" id="K42-9u-kAp"/>
+                        <outletCollection property="scheduleStackButton" destination="3hY-50-tUq" collectionClass="NSMutableArray" id="44K-4e-kMV"/>
+                        <outletCollection property="scheduleStackButton" destination="H2O-V4-Sqz" collectionClass="NSMutableArray" id="PqS-bT-C7W"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YvN-bT-4Yu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -749,6 +756,9 @@
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBlueColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

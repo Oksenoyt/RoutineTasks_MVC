@@ -16,19 +16,18 @@ class DateManager {
         case yyyyMMdd
         case d_EE
         case EE
-        
     }
     
     func getDateString(dayBefore: Int, format: formatDate ) -> String {
         let date = currentDate.dayBefore(value: -dayBefore)
         let dateFormatter = DateFormatter()
-        dateFormatter.locale = Locale(identifier: "ru_Ru")
         var dataFormatted = ""
         switch format {
         case .yyyyMMdd:
             dateFormatter.dateFormat = "yyyy-MM-dd"
             dataFormatted = dateFormatter.string(from: date)
         case .d_EE:
+            dateFormatter.locale = Locale(identifier: "ru_Ru")
             dateFormatter.setLocalizedDateFormatFromTemplate("d")
             let dayNumber = dateFormatter.string(from: date)
             dateFormatter.setLocalizedDateFormatFromTemplate("EE")
@@ -38,7 +37,6 @@ class DateManager {
             dateFormatter.setLocalizedDateFormatFromTemplate("EE")
             dataFormatted = dateFormatter.string(from: date)
         }
-        
         return dataFormatted
     }
 }

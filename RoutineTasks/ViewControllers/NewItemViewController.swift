@@ -12,7 +12,7 @@ class NewItemViewController: UIViewController {
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet var itemColorStackButton: [UIButton]!
     
-    @IBOutlet weak var scheduleStackButton: UIButton!
+    @IBOutlet var scheduleStackButton: [UIButton]!
     @IBOutlet weak var createButton: UIButton!
     
     
@@ -21,7 +21,7 @@ class NewItemViewController: UIViewController {
     var tasks: [Task] = []
     var editTask: Task?
     private var color = "#c49dcc"
-    private var selectedDays = [false, false, false, false, false, false, false]
+    private var selectedDays = [true, true, true, true, true, true, true]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,12 +54,17 @@ class NewItemViewController: UIViewController {
     
     @IBAction func scheduleButton(_ sender: UIButton) {
         selectedDays[sender.tag].toggle()
-        print(selectedDays)
+        if scheduleStackButton[sender.tag].tintColor != .gray {
+            scheduleStackButton[sender.tag].tintColor = .gray
+        } else {
+            scheduleStackButton[sender.tag].tintColor = .systemBlue
+        }
     }
     
     
     @IBAction func createButton(_ sender: UIButton) {
         let currentDate = date.getDateString(dayBefore: 0, format: .yyyyMMdd)
+        let dayWeek = date.getDateString(dayBefore: 0, format: .EE)
         guard let name = nameTextField.text, !name.isEmpty else {
             showAlert(with: "Заполните название задачи")
             return
@@ -70,6 +75,7 @@ class NewItemViewController: UIViewController {
             taskName: name,
             color: color,
             date: currentDate,
+            dayWeek: dayWeek,
             selectedDays: selectedDays
         ) { task in delegate.addNewTask(task: task) }
         

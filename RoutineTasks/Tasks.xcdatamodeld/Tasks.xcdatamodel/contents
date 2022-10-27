@@ -2,6 +2,7 @@
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="21279" systemVersion="21G115" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="CompletionDays" representedClassName="CompletionDays" syncable="YES">
         <attribute name="date" attributeType="String"/>
+        <attribute name="dayWeek" attributeType="String"/>
         <attribute name="isDone" attributeType="Boolean" usesScalarValueType="YES"/>
         <relationship name="task" maxCount="1" deletionRule="Nullify" destinationEntity="Task" inverseName="completion" inverseEntity="Task"/>
     </entity>
