@@ -42,6 +42,9 @@ class MainViewController: UIViewController {
         var dayNumber = -2
         for dayLabel in dayLabels {
             dayLabel.text = date.getDateString(dayBefore: -dayNumber, format: .d_EE)
+            if dayNumber == 0 {
+                dayLabel.font = .boldSystemFont(ofSize: 19)
+            }
             dayNumber += 1
         }
     }

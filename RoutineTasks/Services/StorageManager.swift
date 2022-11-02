@@ -31,25 +31,11 @@ class StorageManager {
     
     // MARK: - CRUD TASK
     func createTask(taskName: String, color: String, date: String, dayWeek: String, selectedDays: [Bool], completion: (Task) -> Void) {
-        let task = Task(context: viewContext)
-        let completionDay = CompletionDays(context: viewContext)
-        let schedule = Schedule(context: viewContext)
+        var task = Task(context: viewContext)
         task.title = taskName
         task.color = color
-        completionDay.task = task
-        completionDay.date = date
-        completionDay.isDone = false
-        completionDay.dayWeek = dayWeek
-        schedule.task = task
-            
-        //переделать
-        schedule.monday = selectedDays[0]
-        schedule.tuesday = selectedDays[1]
-        schedule.wednesday = selectedDays[2]
-        schedule.thursday = selectedDays[3]
-        schedule.friday = selectedDays[4]
-        schedule.saturday = selectedDays[5]
-        schedule.sunday = selectedDays[6]
+        task = createCD(task, date: date, dayWeek: dayWeek, isDone: false)
+        task = createSchedule(task, selectedDays: selectedDays)
         
         completion(task)
         saveContext()
@@ -57,7 +43,6 @@ class StorageManager {
     
     func fetchData(completion: (Result<[Task], Error>) -> Void) {
         let fetchRequest = Task.fetchRequest()
-        
         do {
             let tasks = try viewContext.fetch(fetchRequest)
             completion(.success(tasks))
@@ -73,11 +58,11 @@ class StorageManager {
     //    }
     
     
-    func createCompletionDay(_ task: Task, date: String, dayWeek: String, completion: (CompletionDays) -> Void) {
+    func createCompletionDay(_ task: Task, date: String, dayWeek: String, isDone: Bool, completion: (CompletionDays) -> Void) {
         let completionDay = CompletionDays(context: viewContext)
         completionDay.task = task
         completionDay.date = date
-        completionDay.isDone = true
+        completionDay.isDone = isDone
         completionDay.dayWeek = dayWeek
         
         completion(completionDay)
@@ -162,5 +147,31 @@ class StorageManager {
                 fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
             }
         }
+    }
+    
+    private func createCD(_ taskTemp: Task, date: String, dayWeek: String, isDone: Bool) -> Task{
+        let task = taskTemp
+        let completionDay = CompletionDays(context: viewContext)
+        completionDay.task = task
+        completionDay.date = date
+        completionDay.isDone = false
+        completionDay.dayWeek = dayWeek
+        
+        return task
+    }
+    
+    private func createSchedule(_ taskTemp: Task, selectedDays: [Bool]) -> Task {
+        let task = taskTemp
+        let schedule = Schedule(context: viewContext)
+        schedule.task = task //переделать
+        schedule.monday = selectedDays[0]
+        schedule.tuesday = selectedDays[1]
+        schedule.wednesday = selectedDays[2]
+        schedule.thursday = selectedDays[3]
+        schedule.friday = selectedDays[4]
+        schedule.saturday = selectedDays[5]
+        schedule.sunday = selectedDays[6]
+        
+        return task
     }
 }

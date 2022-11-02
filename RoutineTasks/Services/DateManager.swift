@@ -9,8 +9,12 @@ import Foundation
 
 class DateManager {
     
-    private let currentDate = Date()
+    private let date = Date()
     private let calendar = Calendar.current
+    
+    var currentDate: Date {
+        date.dayBefore(value: 0)
+    }
     
     enum formatDate {
         case yyyyMMdd
@@ -19,7 +23,7 @@ class DateManager {
     }
     
     func getDateString(dayBefore: Int, format: formatDate ) -> String {
-        let date = currentDate.dayBefore(value: -dayBefore)
+        let date = date.dayBefore(value: -dayBefore)
         let dateFormatter = DateFormatter()
         var dataFormatted = ""
         switch format {
@@ -39,8 +43,13 @@ class DateManager {
         }
         return dataFormatted
     }
+    
+    func dayBefore(value: Int) -> Date {
+        Calendar.current.date(byAdding: .day, value: value, to: Date())!
+    }
 }
 
+// переделать
 // MARK:  - DateManager
 extension Date {
     func dayBefore(value: Int) -> Date {

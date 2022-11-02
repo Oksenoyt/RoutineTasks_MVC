@@ -45,7 +45,7 @@ class TaskTableViewCell: UITableViewCell {
             StorageManager.shared.updateCompletionDay(completionDay)
             setColorDone(completionDay: completionDay, for: StackDaysButton[sender.tag])
         } else {
-            StorageManager.shared.createCompletionDay(task, date: taskDate, dayWeek: dayWeek) { completionDay in
+            StorageManager.shared.createCompletionDay(task, date: taskDate, dayWeek: dayWeek, isDone: true) { completionDay in
                 setColorDone(completionDay: completionDay, for: StackDaysButton[sender.tag])
             }
         }
@@ -70,10 +70,9 @@ class TaskTableViewCell: UITableViewCell {
         checkDoneDayButton()
     }
     
-    private func checkDayActive(day: CompletionDays) -> Bool{
-        let currentDay = day.dayWeek
+    private func checkDayActive(dayWeek: String) -> Bool{
         var dayActive = false
-        switch currentDay {
+        switch dayWeek {
         case "Пн":
             if task.schedule.monday {
                 dayActive = true
@@ -107,9 +106,15 @@ class TaskTableViewCell: UITableViewCell {
     }
     
     private func checkDoneDayButton() {
-        let curentDay = date.getDateString(dayBefore: 0, format: .yyyyMMdd)
+        let currentDay = date.getDateString(dayBefore: 0, format: .yyyyMMdd)
         let yesterday = date.getDateString(dayBefore: 1, format: .yyyyMMdd)
         let dayBeforeYesterday = date.getDateString(dayBefore: 2, format: .yyyyMMdd)
+        
+        let dayBeforeYesterdayWeek = date.getDateString(dayBefore: 2, format: .EE)
+        let yesterdayWeek = date.getDateString(dayBefore: 1, format: .EE)
+        let deyWeek = date.getDateString(dayBefore: 0, format: .EE)
+        let tomorrow = date.getDateString(dayBefore: -1, format: .EE)
+        let dayAfterTomorrow = date.getDateString(dayBefore: -2, format: .EE)
         
             for dayButton in StackDaysButton {
                 dayButton.layer.cornerRadius = 16
@@ -121,20 +126,25 @@ class TaskTableViewCell: UITableViewCell {
                             setColorDone(completionDay: completionDay, for: dayButton)
                         }
                     }
+                    dayButton.isEnabled = checkDayActive(dayWeek: dayBeforeYesterdayWeek)
                 case 1:
                     for completionDay in completionDays {
                         if completionDay.date == yesterday {
                             setColorDone(completionDay: completionDay, for: dayButton)
                         }
                     }
+                    dayButton.isEnabled = checkDayActive(dayWeek: yesterdayWeek)
                 case 2:
                     for completionDay in completionDays {
-                        if completionDay.date == curentDay {
+                        if completionDay.date == currentDay {
                             setColorDone(completionDay: completionDay, for: dayButton)
                         }
                     }
+                    dayButton.isEnabled = checkDayActive(dayWeek: deyWeek)
+                case 3:
+                    dayButton.isEnabled = checkDayActive(dayWeek: tomorrow)
                 default:
-                    break
+                    dayButton.isEnabled = checkDayActive(dayWeek: dayAfterTomorrow)
                 }
             }
         

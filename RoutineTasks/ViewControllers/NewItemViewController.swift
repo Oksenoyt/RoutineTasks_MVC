@@ -17,8 +17,10 @@ class NewItemViewController: UIViewController {
     
     
     let date = DateManager()
+
     var delegate:NewItemViewControllerDelegate!
     var tasks: [Task] = []
+    var currentTask: Task?
     var editTask: Task?
     private var color = "#c49dcc"
     private var selectedDays = [true, true, true, true, true, true, true]
@@ -63,22 +65,7 @@ class NewItemViewController: UIViewController {
     
     
     @IBAction func createButton(_ sender: UIButton) {
-        let currentDate = date.getDateString(dayBefore: 0, format: .yyyyMMdd)
-        let dayWeek = date.getDateString(dayBefore: 0, format: .EE)
-        guard let name = nameTextField.text, !name.isEmpty else {
-            showAlert(with: "Заполните название задачи")
-            return
-        }
-        guard checkUniqueName(nameNewTask: name) == true else { return }
-        
-        StorageManager.shared.createTask(
-            taskName: name,
-            color: color,
-            date: currentDate,
-            dayWeek: dayWeek,
-            selectedDays: selectedDays
-        ) { task in delegate.addNewTask(task: task) }
-        
+        createTasck()
         dismiss(animated: true)
     }
     
@@ -101,6 +88,28 @@ class NewItemViewController: UIViewController {
             itemColorView.layer.borderWidth = 0
         }
         itemColorStackButton[tagButton].layer.borderWidth = 3.0
+    }
+    
+    private func createTasck() {
+        let currentDate = date.getDateString(dayBefore: 0, format: .yyyyMMdd)
+        let dayWeek = date.getDateString(dayBefore: 0, format: .EE)
+        guard let name = nameTextField.text, !name.isEmpty else {
+            showAlert(with: "Заполните название задачи")
+            return
+        }
+        guard checkUniqueName(nameNewTask: name) == true else { return }
+        
+        StorageManager.shared.createTask(
+            taskName: name,
+            color: color,
+            date: currentDate,
+            dayWeek: dayWeek,
+            selectedDays: selectedDays
+        ) {
+            task in
+            delegate.addNewTask(task: task)
+            currentTask = task
+        }
     }
     
     private func checkUniqueName(nameNewTask: String) -> Bool {
