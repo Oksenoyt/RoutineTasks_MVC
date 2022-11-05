@@ -95,18 +95,18 @@ extension MainViewController: UITableViewDataSource {
         
         return UISwipeActionsConfiguration(actions: [deletAction, editAction])
     }
+    
 }
 
 // MARK: - UITableViewDelegate
 extension MainViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-//        let task = taskList[indexPath.row]
-//        showAlert(task: task) {
-//            tableView.reloadRows(at: [indexPath], with: .automatic)
-//        }
+        //        let task = taskList[indexPath.row]
+        //        showAlert(task: task) {
+        //            tableView.reloadRows(at: [indexPath], with: .automatic)
+        //        }
     }
-    
 }
 
 // MARK: - NewItemViewControllerDelegate
