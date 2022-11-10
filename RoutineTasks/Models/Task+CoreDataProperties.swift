@@ -2,7 +2,7 @@
 //  Task+CoreDataProperties.swift
 //  RoutineTasks
 //
-//  Created by Elenka on 13.10.2022.
+//  Created by Elenka on 09.11.2022.
 //
 //
 
@@ -18,28 +18,12 @@ extension Task {
 
     @NSManaged public var color: String
     @NSManaged public var title: String
+    @NSManaged public var id: Int16
     @NSManaged public var completion: NSSet
-
-    //new
     @NSManaged public var schedule: Schedule
     @NSManaged public var user: User?
 
 }
-
-//extension Task {
-//
-//    @nonobjc public class func fetchRequest() -> NSFetchRequest<Task> {
-//        return NSFetchRequest<Task>(entityName: "Task")
-//    }
-//
-//    @NSManaged public var color: String?
-//    @NSManaged public var title: String?
-//    @NSManaged public var completion: NSSet?
-//    @NSManaged public var schedule: Schedule?
-//    @NSManaged public var user: User?
-//
-//}
-
 
 // MARK: Generated accessors for completion
 extension Task {

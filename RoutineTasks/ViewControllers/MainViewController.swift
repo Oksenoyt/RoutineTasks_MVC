@@ -30,12 +30,18 @@ class MainViewController: UIViewController {
         taskListTableView.backgroundColor = #colorLiteral(red: 0.9536015391, green: 0.9351417422, blue: 0.9531318545, alpha: 1)
         taskListTableView.layer.cornerRadius = 30
         fetchData()
+        navigationItem.rightBarButtonItems = [addNewItemButton, editButtonItem]
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let newItemVC = segue.destination as? NewItemViewController else { return }
         newItemVC.delegate = self
         newItemVC.tasks = taskList
+    }
+    
+    override func setEditing(_ editing: Bool, animated: Bool) {
+        super.setEditing(editing, animated: true)
+        taskListTableView.setEditing(editing, animated: true)
     }
     
     private func setCalendar() {
@@ -50,7 +56,7 @@ class MainViewController: UIViewController {
     }
     
     private func fetchData() {
-        StorageManager.shared.fetchData { result in
+        StorageManager.shared.fetchTasks { result in
             switch result {
             case .success(let tasks):
                 taskList = tasks
@@ -77,11 +83,15 @@ extension MainViewController: UITableViewDataSource {
         return cell
     }
     
+//    func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
+//        return true
+//    }
+    
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let task = taskList[indexPath.row]
         
         let deletAction = UIContextualAction(style: .normal, title: "Delete") { _, _, _ in
-            StorageManager.shared.delete(task)
+            StorageManager.shared.deleteTask(task)
             self.taskList.remove(at: indexPath.row) //self weak
             tableView.deleteRows(at: [indexPath], with: .automatic)
         }
@@ -107,7 +117,29 @@ extension MainViewController: UITableViewDelegate {
         //            tableView.reloadRows(at: [indexPath], with: .automatic)
         //        }
     }
+    
+    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+        UITableViewCell.EditingStyle.none
+    }
+    
+    func tableView(_ tableView: UITableView, shouldIndentWhileEditingRowAt indexPath: IndexPath) -> Bool {
+        false
+    }
+    
+    func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        StorageManager.shared.updateTask(taskList, sourceIndexPath: sourceIndexPath.row, destinationIndexPath: destinationIndexPath.row) { tasks in
+            taskList = tasks
+        }
+    }
 }
+
+
+
+
+
+
+
+
 
 // MARK: - NewItemViewControllerDelegate
 extension MainViewController: NewItemViewControllerDelegate {

@@ -100,7 +100,8 @@ class NewItemViewController: UIViewController {
         guard checkUniqueName(nameNewTask: name) == true else { return }
         
         StorageManager.shared.createTask(
-            taskName: name,
+            id: tasks.count,
+            name: name,
             color: color,
             date: currentDate,
             dayWeek: dayWeek,

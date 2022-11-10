@@ -30,10 +30,11 @@ class StorageManager {
     }
     
     // MARK: - CRUD TASK
-    func createTask(taskName: String, color: String, date: String, dayWeek: String, selectedDays: [Bool], completion: (Task) -> Void) {
+    func createTask(id: Int, name: String, color: String, date: String, dayWeek: String, selectedDays: [Bool], completion: (Task) -> Void) {
         var task = Task(context: viewContext)
-        task.title = taskName
+        task.title = name
         task.color = color
+        task.id = Int16(id)
         task = createCD(task, date: date, dayWeek: dayWeek, isDone: false)
         task = createSchedule(task, selectedDays: selectedDays)
         
@@ -41,23 +42,32 @@ class StorageManager {
         saveContext()
     }
     
-    func fetchData(completion: (Result<[Task], Error>) -> Void) {
+    func fetchTasks(completion: (Result<[Task], Error>) -> Void) {
         let fetchRequest = Task.fetchRequest()
+        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "id", ascending: true)]
         do {
             let tasks = try viewContext.fetch(fetchRequest)
+            print(tasks)
             completion(.success(tasks))
         } catch let error {
             completion(.failure(error))
         }
     }
     
-    //    func updateTask(_ task: Task, newName: String, newColor: String) {
-    //        task.title = newName
-    //        task.color = newColor
-    //        saveContext()
-    //    }
+    func updateTask(_ taskList: [Task], sourceIndexPath: Int, destinationIndexPath: Int, completion: ([Task]) -> Void) {
+        let taskList: [Task] = taskList
+        taskList[sourceIndexPath].id = Int16(destinationIndexPath)
+        taskList[destinationIndexPath].id = Int16(sourceIndexPath)
+        completion(taskList)
+        saveContext()
+    }
     
+    func deleteTask(_ task: Task) {
+        viewContext.delete(task)
+        saveContext()
+    }
     
+    // MARK: - CRUD CompletionDay
     func createCompletionDay(_ task: Task, date: String, dayWeek: String, isDone: Bool, completion: (CompletionDays) -> Void) {
         let completionDay = CompletionDays(context: viewContext)
         completionDay.task = task
@@ -85,11 +95,6 @@ class StorageManager {
         }
     }
     
-    func delete(_ task: Task) {
-        viewContext.delete(task)
-        saveContext()
-    }
-    
     // MARK: - CRUD USER
     func createUser(name: String, email: String, password: String, completion: (User) -> Void) {
         let user = User(context: viewContext)
@@ -114,24 +119,24 @@ class StorageManager {
         saveContext()
     }
     
-//    func updateUser(_ task: Task, date: String) {
-//        let fetchRequest = CompletionDays.fetchRequest()
-//        fetchRequest.predicate = NSPredicate(format: "(task.title = %@) AND (date = %@)", task.title, date)
-//        do {
-//            let completionDays = try viewContext.fetch(fetchRequest)
-//            if let completionDay = completionDays.first {
-//                completionDay.isDone.toggle()
-//            } else {
-//                let newCompletionDay = CompletionDays(context: viewContext)
-//                newCompletionDay.task = task
-//                newCompletionDay.date = date
-//                newCompletionDay.isDone = true
-//            }
-//        } catch let error {
-//            print("Error fetch completionDays", error)
-//        }
-//        saveContext()
-//    }
+    //    func updateUser(_ task: Task, date: String) {
+    //        let fetchRequest = CompletionDays.fetchRequest()
+    //        fetchRequest.predicate = NSPredicate(format: "(task.title = %@) AND (date = %@)", task.title, date)
+    //        do {
+    //            let completionDays = try viewContext.fetch(fetchRequest)
+    //            if let completionDay = completionDays.first {
+    //                completionDay.isDone.toggle()
+    //            } else {
+    //                let newCompletionDay = CompletionDays(context: viewContext)
+    //                newCompletionDay.task = task
+    //                newCompletionDay.date = date
+    //                newCompletionDay.isDone = true
+    //            }
+    //        } catch let error {
+    //            print("Error fetch completionDays", error)
+    //        }
+    //        saveContext()
+    //    }
     func deleteUser(_ user: User) {
         viewContext.delete(user)
         saveContext()
