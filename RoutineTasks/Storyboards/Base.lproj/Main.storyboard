@@ -447,13 +447,13 @@
                     <navigationItem key="navigationItem" title="Привычки" id="t94-gY-SwS">
                         <barButtonItem key="leftBarButtonItem" title="Item" image="imgSettings" id="AcD-Xv-Xw5">
                             <connections>
-                                <segue destination="Kqc-Jk-AkO" kind="show" id="M0w-Iz-0WW"/>
+                                <segue destination="Kqc-Jk-AkO" kind="show" identifier="SettingsSegue" id="M0w-Iz-0WW"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="n4s-hB-xbd">
                             <color key="tintColor" red="0.94117647058823528" green="0.91764705882352937" blue="0.94117647058823528" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
-                                <segue destination="Are-lL-MFa" kind="presentation" id="2xz-gx-ZQ6"/>
+                                <segue destination="Are-lL-MFa" kind="presentation" identifier="NewItemSegue" id="2xz-gx-ZQ6"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

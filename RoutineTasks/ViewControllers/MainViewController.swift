@@ -11,6 +11,10 @@ protocol NewItemViewControllerDelegate {
     func addNewTask(task: Task)
 }
 
+protocol SettingsViewControllerDelegate {
+    func getUser(_ currentUser: User)
+}
+
 class MainViewController: UIViewController {
     
     @IBOutlet weak var settingsButton: UIBarButtonItem!
@@ -23,6 +27,7 @@ class MainViewController: UIViewController {
     private let date = DateManager()
     
     var taskList:[Task] = []
+    var user: User?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,9 +39,16 @@ class MainViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let newItemVC = segue.destination as? NewItemViewController else { return }
-        newItemVC.delegate = self
-        newItemVC.tasks = taskList
+        if segue.identifier == "NewItemSegue" {
+            guard let newItemVC = segue.destination as? NewItemViewController else { return }
+            newItemVC.delegate = self
+            newItemVC.tasks = taskList
+            newItemVC.user = user
+        } else {
+            guard let settingsVC = segue.destination as? SettingsViewController else { return }
+            settingsVC.delegate = self
+            settingsVC.taskList = taskList
+        }
     }
     
     override func setEditing(_ editing: Bool, animated: Bool) {
@@ -149,5 +161,12 @@ extension MainViewController: NewItemViewControllerDelegate {
             at: [IndexPath(row: taskList.count - 1, section: 0)],
             with: .automatic
         )
+    }
+}
+
+// MARK: - SettingsViewController
+extension MainViewController: SettingsViewControllerDelegate {
+    func getUser(_ currentUser: User) {
+        user = currentUser
     }
 }

@@ -19,6 +19,7 @@ class NewItemViewController: UIViewController {
     let date = DateManager()
 
     var delegate:NewItemViewControllerDelegate!
+    var user: User?
     var tasks: [Task] = []
     var currentTask: Task?
     var editTask: Task?
@@ -36,6 +37,13 @@ class NewItemViewController: UIViewController {
         
         setSettingsNameTF()
         setBorderColorButton(tagButton: 0)
+        print(user?.name)
+//        переделать на тернарный
+        if tasks.first?.user != nil {
+            user = tasks.first?.user
+        }
+        print(user?.name)
+
     }
     
     @IBAction func getColor(_ sender: UIButton) {
@@ -105,7 +113,8 @@ class NewItemViewController: UIViewController {
             color: color,
             date: currentDate,
             dayWeek: dayWeek,
-            selectedDays: selectedDays
+            selectedDays: selectedDays,
+            user: user
         ) {
             task in
             delegate.addNewTask(task: task)

@@ -8,7 +8,7 @@
 import UIKit
 
 class UserViewController: UIViewController {
-
+    
     @IBOutlet weak var iconImageView: UIImageView!
     
     @IBOutlet weak var autotizFormButton: UIButton!
@@ -28,6 +28,7 @@ class UserViewController: UIViewController {
     @IBOutlet weak var createButton: UIButton!
     
     var delegate: UserViewControllerDelegate!
+    var taskList: [Task] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -73,28 +74,36 @@ class UserViewController: UIViewController {
     
     @IBAction func forgotPasswordButton(_ sender: Any) {
         showAlert(with: "Восстановление пароля")
-//        guard let email =
-//        StorageManager.shared.fetchUser(email: email) { result in
-//            switch result {
-//            case .success( let user):
-//
-//            case .failure( let error):
-//                print(error)
-//            }
-//        }
+        //        guard let email =
+        //        StorageManager.shared.fetchUser(email: email) { result in
+        //            switch result {
+        //            case .success( let user):
+        //
+        //            case .failure( let error):
+        //                print(error)
+        //            }
+        //        }
     }
     
     @IBAction func createButton(_ sender: Any) {
-        //добавить логику и проверки
         guard let name = userNameTextField.text, !name.isEmpty else { return }
         guard let email = emailTextField.text, !email.isEmpty else { return }
         guard let pass = passTextField.text, !pass.isEmpty else { return }
-        guard let repeatPass = repeatPassTextField.text, !repeatPass.isEmpty, repeatPass==pass else { return }
+        guard let repeatPass = repeatPassTextField.text, !repeatPass.isEmpty, repeatPass==pass else {
+            //пароль не верный
+            return
+        }
         
-        StorageManager.shared.createUser(name: name, email: email, password: pass) { newUser in
-            delegate.addUser(newUser)
-            dismiss(animated: true)
+        if checkEmail(email) {
+            StorageManager.shared.createUser(name: name, email: email, password: pass, tasks: taskList) { newUser, tasks in
+                delegate.addUser(newUser)
+                delegate.addUserForTasks(tasks)
+                dismiss(animated: true)
             }
+        } else {
+//            showAlert(with: "Такой email уже зарегестрирован")
+            print("такой пользователь уже есть")
+        }
     }
     
     private func avtorizFormActive() {
@@ -117,6 +126,19 @@ class UserViewController: UIViewController {
         autotizFormButton.layer.borderWidth = 5
         createButton.layer.borderColor = #colorLiteral(red: 0.6588235294, green: 0.9176470588, blue: 0.737254902, alpha: 1)
         createButton.layer.borderWidth = 5
+    }
+    
+    private func checkEmail(_ email: String) -> Bool {
+        var check = true
+        StorageManager.shared.fetchUser(email: email) { result in
+            switch result {
+            case .success(_):
+                check = false
+            case .failure(let error):
+                print(error)
+            }
+        }
+        return check
     }
 }
 

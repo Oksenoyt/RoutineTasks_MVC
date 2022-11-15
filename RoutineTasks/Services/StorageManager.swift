@@ -30,13 +30,14 @@ class StorageManager {
     }
     
     // MARK: - CRUD TASK
-    func createTask(id: Int, name: String, color: String, date: String, dayWeek: String, selectedDays: [Bool], completion: (Task) -> Void) {
+    func createTask(id: Int, name: String, color: String, date: String, dayWeek: String, selectedDays: [Bool], user: User?, completion: (Task) -> Void) {
         var task = Task(context: viewContext)
         task.title = name
         task.color = color
         task.id = Int16(id)
         task = createCD(task, date: date, dayWeek: dayWeek, isDone: false)
         task = createSchedule(task, selectedDays: selectedDays)
+        task.user = user
         
         completion(task)
         saveContext()
@@ -96,13 +97,20 @@ class StorageManager {
     }
     
     // MARK: - CRUD USER
-    func createUser(name: String, email: String, password: String, completion: (User) -> Void) {
+    func createUser(name: String, email: String, password: String, tasks: [Task], completion: (User, [Task]) -> Void) {
         let user = User(context: viewContext)
         user.name = name
         user.email = email
         user.password = password
         
-        completion(user)
+        //переделать в отдельный метод
+        let taskList = tasks
+        
+        for task in taskList {
+            task.user = user
+        }
+        
+        completion(user, taskList)
         saveContext()
     }
     
@@ -137,7 +145,11 @@ class StorageManager {
     //        }
     //        saveContext()
     //    }
-    func deleteUser(_ user: User) {
+    func deleteUser(_ user: User, with tasks: [Task]) {
+        for task in tasks {
+            deleteTask(task)
+        }
+            
         viewContext.delete(user)
         saveContext()
     }
