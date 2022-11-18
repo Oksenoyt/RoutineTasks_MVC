@@ -19,6 +19,8 @@ class SettingsViewController: UIViewController {
     @IBOutlet weak var userNameLabel: UILabel!
     @IBOutlet weak var deleteAccountButton: UIButton!
     
+    @IBOutlet weak var mail: UILabel!
+    
     var user: User?
     var taskList: [Task] = []
     var delegate: SettingsViewControllerDelegate!
@@ -60,6 +62,9 @@ class SettingsViewController: UIViewController {
     private func setSettings(for user: User) {
         autorizButton.title = "Выйти"
         userNameLabel.text = user.name
+        if let email = user.email {
+            mail.text = "ваш email: \(email)"
+        }
         deleteAccountButton.isEnabled = true
     }
 }

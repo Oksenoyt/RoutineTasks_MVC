@@ -48,7 +48,6 @@ class StorageManager {
         fetchRequest.sortDescriptors = [NSSortDescriptor(key: "id", ascending: true)]
         do {
             let tasks = try viewContext.fetch(fetchRequest)
-            print(tasks)
             completion(.success(tasks))
         } catch let error {
             completion(.failure(error))
@@ -149,7 +148,7 @@ class StorageManager {
         for task in tasks {
             deleteTask(task)
         }
-            
+        
         viewContext.delete(user)
         saveContext()
     }
@@ -191,4 +190,17 @@ class StorageManager {
         
         return task
     }
+    
+//    private func fetchTasksHave(user: User, completion: (Result<[Task], Error>) -> Void) {
+//        let fetchRequest = Task.fetchRequest()
+//        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "id", ascending: true)]
+//        fetchRequest.predicate = NSPredicate(format: "user = %@", user)
+//        do {
+//            let tasks = try viewContext.fetch(fetchRequest)
+//            print(tasks.first?.user?.name)
+//            completion(.success(tasks))
+//        } catch let error {
+//            completion(.failure(error))
+//        }
+//    }
 }

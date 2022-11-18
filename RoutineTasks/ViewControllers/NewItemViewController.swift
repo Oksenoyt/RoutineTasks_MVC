@@ -37,13 +37,10 @@ class NewItemViewController: UIViewController {
         
         setSettingsNameTF()
         setBorderColorButton(tagButton: 0)
-        print(user?.name)
 //        переделать на тернарный
         if tasks.first?.user != nil {
             user = tasks.first?.user
         }
-        print(user?.name)
-
     }
     
     @IBAction func getColor(_ sender: UIButton) {

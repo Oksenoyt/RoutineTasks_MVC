@@ -145,14 +145,6 @@ extension MainViewController: UITableViewDelegate {
     }
 }
 
-
-
-
-
-
-
-
-
 // MARK: - NewItemViewControllerDelegate
 extension MainViewController: NewItemViewControllerDelegate {
     func addNewTask(task: Task) {
@@ -164,7 +156,7 @@ extension MainViewController: NewItemViewControllerDelegate {
     }
 }
 
-// MARK: - SettingsViewController
+// MARK: - SettingsViewControllerDelegate
 extension MainViewController: SettingsViewControllerDelegate {
     func getUser(_ currentUser: User) {
         user = currentUser

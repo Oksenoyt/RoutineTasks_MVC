@@ -62,14 +62,14 @@ class UserViewController: UIViewController {
                     delegate.addUser(user)
                     dismiss(animated: true)
                 } else {
-                    print("не верный логин или пароль")
-                    //переделать
+                    showAlert(with: "не верный логин или пароль")
+                    return
                 }
             case .failure(let error):
                 print(error)
             }
         }
-        
+        showAlert(with: "не верный логин или пароль")
     }
     
     @IBAction func forgotPasswordButton(_ sender: Any) {
@@ -90,7 +90,8 @@ class UserViewController: UIViewController {
         guard let email = emailTextField.text, !email.isEmpty else { return }
         guard let pass = passTextField.text, !pass.isEmpty else { return }
         guard let repeatPass = repeatPassTextField.text, !repeatPass.isEmpty, repeatPass==pass else {
-            //пароль не верный
+//            showAlert(with: "Не верный логин(email) или пароль")
+            showAlert(with: "пароль не совпадает")
             return
         }
         
@@ -101,7 +102,7 @@ class UserViewController: UIViewController {
                 dismiss(animated: true)
             }
         } else {
-//            showAlert(with: "Такой email уже зарегестрирован")
+            showAlert(with: "Такой email уже зарегестрирован")
             print("такой пользователь уже есть")
         }
     }
@@ -145,11 +146,6 @@ class UserViewController: UIViewController {
 extension UserViewController {
     private func showAlert(with title: String) {
         let alert = UIAlertController(title: title, message: nil, preferredStyle: .actionSheet)
-        alert.addTextField { textField in
-            textField.placeholder = "email"
-        }
-        
-        alert.addAction(UIAlertAction(title: "Отмена", style: .cancel))
         alert.addAction(UIAlertAction(title: "OK", style: .default))
         
         present(alert, animated: true)
