@@ -23,8 +23,8 @@ class DateManager {
     }
     
     func getDateString(dayBefore: Int, format: formatDate ) -> String {
-        let date = date.dayBefore(value: -dayBefore)
         let dateFormatter = DateFormatter()
+        let date = date.dayBefore(value: -dayBefore)
         var dataFormatted = ""
         switch format {
         case .yyyyMMdd:

@@ -12,11 +12,12 @@ class NewItemViewController: UIViewController {
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet var itemColorStackButton: [UIButton]!
     
+    @IBOutlet weak var notificationTextField: UITextField!
     @IBOutlet var scheduleStackButton: [UIButton]!
     @IBOutlet weak var createButton: UIButton!
     
-    
     let date = DateManager()
+    let datePicker = UIDatePicker()
 
     var delegate:NewItemViewControllerDelegate!
     var user: User?
@@ -41,6 +42,8 @@ class NewItemViewController: UIViewController {
         if tasks.first?.user != nil {
             user = tasks.first?.user
         }
+        
+        createDatePicker()
     }
     
     @IBAction func getColor(_ sender: UIButton) {
@@ -128,6 +131,26 @@ class NewItemViewController: UIViewController {
         }
         return true
     }
+    
+    private func createToolPar() -> UIToolbar {
+        let toolBar = UIToolbar()
+        toolBar.sizeToFit()
+        
+        //изучить selector
+        let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(doneButtonPressed))
+        toolBar.setItems([doneButton], animated: true)
+
+        return toolBar
+    }
+    
+    private func createDatePicker() {
+        datePicker.preferredDatePickerStyle = .wheels
+        datePicker.datePickerMode = .time
+        notificationTextField.inputView = datePicker
+        notificationTextField.inputAccessoryView = createToolPar()
+    }
+    
+    //what is it objc?
 }
 
 extension NewItemViewController {
@@ -137,5 +160,13 @@ extension NewItemViewController {
         alert.addAction(okAction)
         
         present(alert, animated: true)
+    }
+    
+    @objc private func doneButtonPressed() {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .none
+        dateFormatter.timeStyle = .short
+        notificationTextField.text = dateFormatter.string(from: datePicker.date)
+        view.endEditing(true)
     }
 }
