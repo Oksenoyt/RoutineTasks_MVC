@@ -131,28 +131,10 @@ class NewItemViewController: UIViewController {
         }
         return true
     }
-    
-    private func createToolPar() -> UIToolbar {
-        let toolBar = UIToolbar()
-        toolBar.sizeToFit()
-        
-        //изучить selector
-        let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(doneButtonPressed))
-        toolBar.setItems([doneButton], animated: true)
-
-        return toolBar
-    }
-    
-    private func createDatePicker() {
-        datePicker.preferredDatePickerStyle = .wheels
-        datePicker.datePickerMode = .time
-        notificationTextField.inputView = datePicker
-        notificationTextField.inputAccessoryView = createToolPar()
-    }
-    
-    //what is it objc?
 }
 
+
+//что запихивать в екстеншин?
 extension NewItemViewController {
     private func showAlert(with title: String) {
         let alert = UIAlertController(title: title, message: nil, preferredStyle: .actionSheet)
@@ -162,6 +144,25 @@ extension NewItemViewController {
         present(alert, animated: true)
     }
     
+    private func createDatePicker() {
+        datePicker.preferredDatePickerStyle = .wheels
+        datePicker.datePickerMode = .time
+        notificationTextField.inputView = datePicker
+        notificationTextField.inputAccessoryView = createToolPar()
+    }
+    
+    private func createToolPar() -> UIToolbar {
+        let toolBar = UIToolbar()
+        toolBar.sizeToFit()
+        
+        //изучить selector
+        let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(doneButtonPressed))
+        toolBar.setItems([doneButton], animated: true)
+        
+        return toolBar
+    }
+    
+    //what is it objc?
     @objc private func doneButtonPressed() {
         let dateFormatter = DateFormatter()
         dateFormatter.dateStyle = .none
