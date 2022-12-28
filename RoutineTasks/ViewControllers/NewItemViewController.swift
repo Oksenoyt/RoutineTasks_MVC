@@ -120,6 +120,8 @@ class NewItemViewController: UIViewController {
             delegate.addNewTask(task: task)
             currentTask = task
         }
+        
+        
     }
     
     private func checkUniqueName(nameNewTask: String) -> Bool {
@@ -130,6 +132,10 @@ class NewItemViewController: UIViewController {
             }
         }
         return true
+    }
+    
+    private func sendNotificationCentre(date: Date) {
+        
     }
 }
 
@@ -149,6 +155,12 @@ extension NewItemViewController {
         datePicker.datePickerMode = .time
         notificationTextField.inputView = datePicker
         notificationTextField.inputAccessoryView = createToolPar()
+        notificationTextField.layer.masksToBounds = true
+        notificationTextField.layer.cornerRadius = 30
+        notificationTextField.attributedPlaceholder = NSAttributedString(string: "00:00", attributes: [
+            .foregroundColor: UIColor.systemBlue,
+            .font: UIFont.boldSystemFont(ofSize: 15.0)
+        ])
     }
     
     private func createToolPar() -> UIToolbar {
