@@ -1,5 +1,6 @@
-# RoutineTasks_MVC - project closed
+# RoutineTasks_MVC - project closed 
 ________________________________________
+(the project was closed due to choosing an incorrect architecture)
 
 On the current stage of the project, the following features have been implemented:
 - To create a task with parameters
